@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="top.blockchain.dao.TbUserBalanceRecordDAO">
+
+  <insert id="save" parameterType="TbUserBalanceRecord">
+    insert into TbUserBalanceRecord(uid,bdir,btype,balance,info)
+    values(#{uid},#{bdir},#{btype},#{balance},#{info})
+  </insert>
+
+  <update id="update" parameterType="TbUserBalanceRecord">
+    update TbUserBalanceRecord set uid=#{uid},bdir=#{bdir},btype=#{btype},balance=#{balance},info=#{info},created=now()
+    where burid=#{burid}
+  </update>
+
+  <select id="queryByKey" parameterType="TbUserBalanceRecord" resultType="TbUserBalanceRecord">
+    select burid,uid,bdir,btype,balance,info,created from TbUserBalanceRecord
+    where burid=#{burid}
+  </select>
+
+  <select id="queryAll" resultType="TbUserBalanceRecord" parameterType="TbUserBalanceRecord">
+    select pu.burid,pu.uid,pu.bdir,pu.btype,pu.balance,pu.info,pu.created,
+    u.blockId 'user.blockId',u.phone 'user.phone'
+    from TbUserBalanceRecord pu
+    inner join TbUser u on pu.uid=u.uid
+    <trim prefix="where" prefixOverrides="and">
+      <if test="user!=null and user.phone!=null and user.phone!=''">
+        and u.phone = #{user.phone}
+      </if>
+      <if test="user!=null and user.blockId!=null and user.blockId!=''">
+        and u.blockId = #{user.blockId}
+      </if>
+    </trim>
+    order by pu.created desc
+  </select>
+
+  <select id="queryAll_COUNT" resultType="int" parameterType="TbUserBalanceRecord">
+    select count(*)
+    from TbUserBalanceRecord pu
+    inner join TbUser u on pu.uid=u.uid
+    <trim prefix="where" prefixOverrides="and">
+      <if test="user!=null and user.phone!=null and user.phone!=''">
+        and u.phone = #{user.phone}
+      </if>
+      <if test="user!=null and user.blockId!=null and user.blockId!=''">
+        and u.blockId = #{user.blockId}
+      </if>
+    </trim>
+    
+  </select>
+  
+  <select id="queryUserAll" resultType="TbUserBalanceRecord" parameterType="TbUser">
+    select burid,uid,bdir,btype,balance,info,created from TbUserBalanceRecord
+    where uid=#{uid}
+    order by created desc
+  </select>
+
+  <select id="queryUserAll_COUNT" resultType="int" parameterType="TbUser">
+     select count(*) from TbUserBalanceRecord
+     where uid=#{uid}
+  </select>
+</mapper>

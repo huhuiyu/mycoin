@@ -1,0 +1,22 @@
+.div-zhiduan{
+  color: rgb(21, 134, 233);
+  /* width: 180px;
+  height: 40px;
+  overflow-y: auto;
+  overflow-x: hidden; */
+  cursor: pointer;
+
+}
+
+.btn-xjxj{
+  padding: 5px 50px 5px 50px;
+}
+
+@font-face {
+  font-family: 'iconfont';  /* project id 721813 */
+  src: url('//at.alicdn.com/t/font_721813_akjk1mesmyq.eot');
+  src: url('//at.alicdn.com/t/font_721813_akjk1mesmyq.eot?#iefix') format('embedded-opentype'),
+  url('//at.alicdn.com/t/font_721813_akjk1mesmyq.woff') format('woff'),
+  url('//at.alicdn.com/t/font_721813_akjk1mesmyq.ttf') format('truetype'),
+  url('//at.alicdn.com/t/font_721813_akjk1mesmyq.svg#iconfont') format('svg');
+}

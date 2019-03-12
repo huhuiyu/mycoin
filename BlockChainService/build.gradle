@@ -1,0 +1,61 @@
+buildscript {
+  repositories {
+    mavenLocal()
+    maven {url 'http://maven.aliyun.com/nexus/content/groups/public/'}
+    maven {url 'http://maven.huhuiyu.cn/repository/huhuiyu/'}
+    mavenCentral()
+  }
+
+  dependencies {
+    classpath("org.springframework.boot:spring-boot-gradle-plugin:2.0.2.RELEASE")
+  }
+}
+
+//插件
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'org.springframework.boot'
+apply plugin: 'io.spring.dependency-management'
+
+//编译
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+[compileJava, compileTestJava]*.options*.encoding = 'UTF-8'
+
+version = '1.0.0.0'
+
+//资源库次序
+repositories {
+  mavenLocal()
+  maven {url 'http://maven.aliyun.com/nexus/content/groups/public/'}
+   maven {url 'http://maven.huhuiyu.cn/repository/huhuiyu/'}
+  mavenCentral()
+}
+
+dependencies {
+  //springboot依赖
+  compile("org.springframework.boot:spring-boot-starter-web")
+  //springboot aop
+  //compile group: 'org.springframework', name: 'spring-aop', version: '5.0.6.RELEASE'
+  compile group: 'org.aspectj', name: 'aspectjweaver', version: '1.9.1'
+  
+  //springboot开发依赖
+  compile group: 'org.springframework.boot', name: 'spring-boot-devtools', version: '2.0.2.RELEASE'
+  //mysql驱动
+  compile group: 'mysql', name: 'mysql-connector-java', version: '6.0.6'
+  //分页
+  compile group: 'com.github.pagehelper', name: 'pagehelper-spring-boot-starter', version: '1.2.5'
+  //mybatis
+  compile group: 'org.mybatis.spring.boot', name: 'mybatis-spring-boot-starter', version: '1.3.2'
+  //阿里api和短信
+  compile group: 'com.aliyun', name: 'aliyun-java-sdk-core', version: '3.7.1'
+  compile group: 'com.aliyun', name: 'aliyun-java-sdk-dysmsapi', version: '1.1.0'
+  //huhuiyu-third
+   compile group: 'com.ucpaas', name: 'sms', version: '1.0.0'
+  
+  //测试
+  testCompile group: 'junit', name: 'junit', version: '4.12'
+  testCompile group: 'org.springframework.boot', name: 'spring-boot-starter-test', version: '2.0.2.RELEASE'
+}
+

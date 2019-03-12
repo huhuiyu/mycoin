@@ -1,0 +1,131 @@
+.zuoyou {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+/*div比例*/
+.zuoyoubili1 {
+  min-width: 10%;
+  max-width: 90%;
+  flex: 1;
+}
+.zuoyoubili2 {
+  min-width: 90%;
+  max-width: 10%;
+  flex: 1;
+  font-size: 15px;
+}
+.zuoyoubili4 {
+  min-width: 40%;
+  max-width: 60%;
+  flex: 1;
+}
+.zuoyoubili3 {
+  min-width: 60%;
+  max-width: 40%;
+  flex: 1;
+}
+/*选项设置高度*/
+.topxiangshou {
+  height: 40px;
+}
+
+.topxiangshou1 {
+  height: 50px;
+}
+
+/* 选项上下边框样式 */
+/* .bianxian {
+  border-top: 1px solid rgb(231, 231, 231);
+  border-bottom: 1px solid rgb(231, 231, 231);
+}
+.bianxian1 {
+  border-bottom: 1px solid rgb(0, 221, 255);
+  width: 90%;
+  margin: auto;
+}
+
+.bianxian2 {
+  border-top: 1px solid rgb(231, 231, 231);
+} */
+.bianxian6 {
+  border-bottom: 1px solid #fff;
+}
+.int-ep2 {
+  border: none;
+  background: transparent;
+  width: 70%;
+  color: black;
+  font-size: 1.5rem;
+  height: 30px;
+  float: right;
+  font-size: 0.1rem;
+  margin-top: 0px;
+  text-align: center;
+}
+.int-ep {
+  border: none;
+  background: transparent;
+  width: 75%;
+  color: #fff;
+  font-size: 1.5rem;
+  height: 30px;
+  float: right;
+
+  margin-top: 0px;
+  text-align: center;
+}
+.pe {
+  width: 5px;
+  height: 15px;
+  padding-top: 90px;
+  font-size: 1em;
+}
+.margin-div {
+  width: 100%;
+}
+.pangding-div {
+  margin: 60px auto;
+  padding: 10px auto;
+  border-radius: 20px;
+
+  background: rgb(65, 174, 225);
+  color: #fff;
+  width: 20%;
+  text-align: center;
+}
+/* .radui-div{
+    /* border-radius: 20px;
+    border: 1px solid yellow;
+    background: yellow;
+    color: #fff;
+    width: 40%; } */
+.div-marigin {
+  margin-top: 90px;
+}
+.font-css {
+  padding: 0px;
+  margin: 9px 120px 0px 120px;
+  width: 100%;
+  font-size: 1.1em;
+  position: fixed;
+  float: left;
+}
+.ids {
+  color: rgba(207, 200, 200, 0.78);
+  text-align: left;
+}
+.div-body1 {
+  margin: 70px 0px 0px 0px;
+  position: fixed;
+}
+.inspm {
+  width: 60%;
+  margin: -24px 0px 0px 72px;
+  height: 20px;
+  padding: -3px 0px 24px 0px;
+  /* border: 1px solid; */
+  text-align: center;
+  position: fixed;
+}

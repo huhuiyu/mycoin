@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="top.blockchain.dao.TbUserInfoDAO">
+
+  <select id="queryTotalBalance" resultType="TbUserInfo">
+    select sum(balance) 'balance',sum(paybalance) 'paybalance',sum(freeze) 'freeze' from TbUserInfo
+  </select>
+
+  <!--查询用户附加信息表 -->
+  <select id="query" resultType="TbUserInfo">
+    select * from TbUserInfo
+  </select>
+
+  <!--根据主键查询用户附加信息表 -->
+  <select id="queryUserInfoByKey" resultType="TbUserInfo">
+    select wechat,alipay,balance,freeze,paybalance,nickname,idCard,vip from TbUserInfo where uid=#{uid}
+  </select>
+
+  <!--分页查询用户附加信息表 -->
+  <select id="query_COUNT" resultType="int">
+    select count(*) from TbUserInfo
+  </select>
+
+  <!--添加用户附加信息表 -->
+  <insert id="add" parameterType="TbUserInfo">
+    insert into TbUserInfo(uid,wechat,alipay,balance,freeze,nickname)
+    values(uid=#{uid},wechat=#{wechat},alipay=#{alipay},balance=#{balance},freeze=#{freeze},nickname=#{nickname})
+  </insert>
+
+  <!--根据uid修改wechat，alipay，nickname -->
+  <update id="modify" parameterType="TbUserInfo">
+    update TbUserInfo set wechat=#{wechat},alipay=#{alipay},nickname=#{nickname} where uid=#{uid}
+  </update>
+
+  <!--添加初始化用户附加信息表 -->
+  <insert id="addNew" parameterType="TbUserInfo">
+    insert into TbUserInfo(uid,idCard,balance,freeze,paybalance) values(#{uid},#{idCard},0,0,0)
+  </insert>
+
+  <!--按照主键查询用户附加信息表 -->
+  <select id="queryByKey" resultType="TbUserInfo">
+    select * from TbUserInfo where uid=#{uid}
+  </select>
+
+  <!--根据uid修改wechat，alipay，balance，freeze，nickname -->
+  <update id="modifyIdCard" parameterType="TbUserInfo">
+    update TbUserInfo set idCard=#{idCard},nickname=#{nickname} where uid=#{uid}
+  </update>
+
+  <!--修改用户资金 -->
+  <update id="modifyBalance" parameterType="TbUserInfo">
+    update TbUserInfo set balance=#{balance},freeze=#{freeze},paybalance=#{paybalance} where uid=#{uid}
+  </update>
+
+  <!-- 查询一笔待释放币>0的用户信息 -->
+  <select id="queryTopPaybalanceUserInfo" resultType="TbUserInfo">
+    select * from
+    (
+    select uid,wechat,alipay,balance,freeze,paybalance,nickname,idCard
+    ,(select datediff(b.created,now()) from TbUserBalanceRecord
+    b where b.uid = a.uid and b.btype='10' order by b.created desc limit 1) 'process'
+    from
+    (
+    select uid,wechat,alipay,balance,freeze,paybalance,nickname,idCard from TbUserInfo
+    where paybalance &gt; 0
+    ) a
+    )
+    c
+    where process is null or not process = 0 limit 50
+  </select>
+
+  <!--修改用户资金 -->
+  <update id="modifyPayBalance" parameterType="TbUserInfo">
+    update TbUserInfo set balance=#{balance},paybalance=#{paybalance} where uid=#{uid}
+  </update>
+
+  <!--修改用户vip状态 -->
+  <update id="modifyVip" parameterType="TbUserInfo">
+    update TbUserInfo set balance=#{balance},vip=#{vip} where uid=#{uid}
+  </update>
+
+  <!-- 查询上级信息 -->
+  <select id="queryParentByUid" resultType="TbUserInfo">
+    select * from TbUserInfo
+    where uid in (select linkman from TbUser where uid=#{uid})
+  </select>
+
+  <!--根据电话查询用户信息和用户附加信息表 -->
+  <select id="queryUserInfoByPhone" resultType="TbUser">
+    select u.uid,u.blockId,u.phone,u.tokenId,ui.wechat 'userInfo.wechat',ui.alipay 'userInfo.alipay',ui.uid 'userInfo.uid'
+    ,ui.balance 'userInfo.balance',ui.freeze 'userInfo.freeze',ui.paybalance 'userInfo.paybalance',ui.idCard 'userInfo.idCard'
+    from TbUser u
+    inner join TbUserInfo ui on u.uid=ui.uid
+    where
+    phone=#{phone}
+  </select>
+
+  <!--根据tokenId查询用户信息和用户附加信息表 -->
+  <select id="queryUserInfoByTokenId" resultType="TbUser">
+    select u.uid,u.blockId,u.phone,u.tokenId,ui.wechat 'userInfo.wechat',ui.alipay 'userInfo.alipay',ui.uid 'userInfo.uid'
+    ,ui.balance 'userInfo.balance',ui.freeze 'userInfo.freeze',ui.paybalance 'userInfo.paybalance',ui.idCard 'userInfo.idCard'
+    from TbUser u
+    inner join TbUserInfo ui on u.uid=ui.uid
+    where
+    u.tokenId=#{tokenId}
+  </select>
+
+</mapper>

@@ -1,0 +1,36 @@
+.pangding-div13 {
+  padding: 10px auto;
+  border-radius: 20px;
+  background: #00ddff;
+  color: #fff;
+  width: 30%;
+  text-align: center;
+}
+.headj {
+  width: 100%;
+  margin-top:10px;
+  position: flex;
+  height: 40px;
+}
+.headr {
+  width: 100%;
+  margin-top:10px;
+  position: flex;
+  height: 40px;
+  
+}
+.left1 {
+  float: left;
+  margin-left: 29px;
+}
+.left2 {
+  float: left;
+  margin-left: 10px;
+}
+.wid {
+  width: 24%;
+}
+.font-left{
+  float: left;
+
+}

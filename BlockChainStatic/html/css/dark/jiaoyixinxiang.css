@@ -1,0 +1,33 @@
+.ghgh {
+  text-align: center;
+    border: 1px solid rgba(60, 118, 61, 0.69);
+    margin: 21px auto;
+    width: 90%;
+    font-size: 20px;
+    box-shadow: 1px 1px 31px 9px;
+}
+.pangding-div12{
+  padding: 10px auto;
+  border-radius: 20px;
+  background: #00ddff;
+  color: #fff;
+  width:30%;
+  text-align: center;
+}
+
+.widefro1 {
+  float: left;
+  border: 1.3px solid #00ddff;
+  max-width: 100%;
+  min-width: 100%;
+  width: 100%;
+  font-size:1.9rem;
+  height: 30px;
+  margin: auto;
+  text-align: center;
+  background: rgba(41, 0, 255, 0.41);
+}
+
+.bianxian3{
+  border-bottom: 2px solid #00ddff;
+}

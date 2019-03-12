@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>LTC</title>
+  <link rel="stylesheet" href="lib/bootstrap.min.css">
+  <link rel="stylesheet" href="css/common.css">
+  <link rel="stylesheet" href="css/daibi.css">
+
+</head>
+
+<body>
+  <div class="div-main">
+    <div class="div-head">
+      <div class="pd10 alpha-div">
+        <span class="h3">
+          <i id="btnback" class="pd10 glyphicon glyphicon-chevron-left"></i> LTC
+        </span>
+
+      </div>
+    </div>
+    <div class="pd40"></div>
+    <div class="div-body">
+      <div class="linejd">
+        <div class="ghgh1">
+          <div class="ke">暂未开放，敬请期待。
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- <div class="div-body">
+
+      <div class="pd10 font14">
+          <P>莱特币（LTC）简介更新</P>
+
+         <p> Litecoin（简写：LTC）是一种基于“点对点”(peer-to-peer)技术的网络货币，也是MIT/X11许可下的一个开源软件项目。它可以帮助用户即时付款给世界上任何一个人。它基于比特币(Bitcoin)协议，但不同于比特币的地方在于，即使在现阶段，通过消费级的硬件也可以高效地“挖矿”。Litecoin提供给您更快速的交易确认（平均2.5分钟），它使用硬内存以及基于scrypt(一种加密算法)的挖矿工作量证明算法，面向大多数人使用的普通计算机及图形处理器(GPU)。Litecoin的设计目的之一是提供一种挖掘算法，使它能够在挖掘比特币的机器上被同时运行。为挖掘比特币而设计的专用集成电路(ASIC)逐渐兴起的同时，Litecoin也紧跟着技术演变。但在Litecoin货币被广泛应用之前，不太可能会出现专门为Litecoin设计的专用集成电路(ASIC)。</P>
+         <P> 总量：8400万</p>
+      </div>
+    </div> -->
+  </div>
+  </div>
+
+
+  <!-- 通用对话框开始 -->
+  <div>
+    <!-- 等待对话框 -->
+    <div class="modal" data-keyboard="false" data-backdrop="false" role="dialog" tabindex="-1" id="wait-dialog" style="z-index: 1999;">
+      <div class="modal-dialog modal-sm" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title" id="wait-dialog-title"></h4>
+          </div>
+          <div class="modal-body">
+            <div>
+              <div id="wait-dialog-info" class="h4 text-center"></div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+    <!-- 等待对话框结束 -->
+    <!-- 确定对话框 -->
+    <div class="modal" role="dialog" tabindex="-1" id="alert-dialog" style="z-index: 1998;">
+      <div class="modal-dialog modal-sm" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+            <h4 class="modal-title" id="alert-dialog-title"></h4>
+          </div>
+          <div class="modal-body">
+            <div>
+              <div id="alert-dialog-info" class="h4 text-center"></div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <span class="btn btn-primary" data-dismiss="modal">确定</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- 确定对话框结束 -->
+
+    <!-- 确认对话框 -->
+    <div class="modal" role="dialog" data-keyboard="false" data-backdrop="false" tabindex="-1" id="confirm-dialog" style="z-index: 1997;">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title" id="confirm-dialog-title"></h4>
+          </div>
+          <div class="modal-body">
+            <div>
+              <div id="confirm-dialog-info" class="h4 text-center"></div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <span class="btn btn-primary" id="confirm-dialog-yes">是</span>
+            <span class="btn btn-primary" id="confirm-dialog-no">否</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- 确认对话框结束 -->
+
+    <!-- 自定义对话框 -->
+    <div class="modal" data-keyboard="false" data-backdrop="false" role="dialog" tabindex="-1" id="custom-dialog" style="z-index: 1990;">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title" id="custom-dialog-title"></h4>
+          </div>
+          <div class="modal-body">
+            <div id="custom-dialog-body"></div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+    <!-- 自定义对话框结束 -->
+  </div>
+  <!-- 通用对话框结束 -->
+  <script type="text/javascript" src="lib/jquery.min.js"></script>
+  <script type="text/javascript" src="lib/bootstrap.min.js"></script>
+  <script type="text/javascript" src="lib/bs-dialog.js"></script>
+  <script type="text/javascript" src="lib/data-service.js"></script>
+  <script type="text/javascript" src="js/common.js"></script>
+  <script type="text/javascript" src="js/LTC.js"></script>
+</body>
+
+</html>

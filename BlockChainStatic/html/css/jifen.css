@@ -1,0 +1,78 @@
+.bgs {
+    height: 230px;
+  }
+  #op {
+    text-align: center;
+  }
+  #fen {
+    text-align: center;
+  }
+  #fon {
+    text-align: center;
+  }
+  
+  .foo {
+    width: 416px;
+    height: 340px;
+    background-color: rgba(193, 80, 80, 0.01);
+  }
+  body {
+    margin-bottom: -200px;
+    padding-bottom: -200px;
+  }
+  #yoot {
+    padding-top: 5px;
+    font-size: 20px;
+  }
+  #hai {
+    height: 45px;
+    padding-top: 10px;
+    padding-left: 10px;
+  }
+  body,
+  html,
+  .divMain {
+    height: 90%;
+    margin: 0px;
+    padding: 0px;
+  }
+  
+  .divHead,
+  .divFoot {
+    width: 100%;
+    position: fixed;
+  }
+  .divHead {
+    top: 0px;
+    background-color: #0000ff;
+  }
+  .divFoot {
+    bottom: 14px;
+  }
+  .divBody {
+    margin-top: 230px;
+    height: 100%;
+  }
+  .dkn {
+    padding: 25px 5px;
+  
+  
+  }
+  .kdk {
+    border: none;
+    border-bottom: 1px solid blue;
+    width: 100%;
+    padding: 5px 10px;
+  }
+  .btndj {
+      border-radius:25px;
+      border:none;
+      border-color: rgba(255, 193, 0, 0);
+      background-color: rgba(251, 155, 17, 0.99);
+      margin-left:39%;
+      margin-top:26px;
+      width: 25%;
+      height: 38px;
+      font-size: 15px;
+      color:beige;
+  }

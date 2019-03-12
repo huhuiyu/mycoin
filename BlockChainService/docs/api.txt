@@ -1,0 +1,218 @@
+统一说明=========================================================================================
+应答结果
+  success
+    true 正确应答
+    false 错误应答
+  message 服务器应答消息
+  code 服务器应答代码 1000表示用户没有登陆，一般需要直接调整到登陆页面
+  servertoken 服务器凭证
+  loginUser 当前登陆用户信息，没有登陆为null
+  dataMap 服务器应答的数据集合
+
+前台部分=========================================================================================
+图片校验码地址
+  /util/validate.jpg
+
+发送电话校验码
+  /util/sendPhoneCode
+  {"phoneCode.phone":"15973673696","imageTokenCode":"AZ1235"}
+  phoneCode.phone为电话号码，imageTokenCode为图片校验码
+  
+用户注册功能
+  /user/add  
+  {"user.phone":"15973673696","user.password":"pwd1234","user.paypwd":"pwd457","user.blockId":"8888888","phoneCode":"364635"}
+  user.phone为电话，user.password为密码，user.paypwd为支付密码，user.blockId为推荐人id，phoneCode为手机验证码
+  
+用户登陆 
+  /user/login
+  {"user.phone":"15973673696","user.password":"pwd123"}
+  user.phone为电话，user.password为密码
+  
+用户登出
+  /user/logout
+  {}
+
+找回密码
+  /user/foundPassword
+  {"user.phone":"15973673696","user.password":"pwd1234","phoneCode":"197051"}
+
+电话实名认证
+  /user/util/phoneCheck
+  {"phoneCheck.idCard":"430703199907242015","phoneCheck.name":"杨尚易"}
+  phoneCheck.idCard为身份证，phoneCheck.name为姓名
+
+修改密码
+  /user/modifyPassword
+  {"user.password":"modipwd123"}
+  user.password为新密码
+
+修改支付密码
+  /user/modifyPaypwd
+  {"user.paypwd":"mod123"}
+  user.paypwd为新支付密码
+
+挂单
+  /userBalanceRecord/addBalanceRecord
+  {"record.balance":20,"record.price":1090,"record.info":"哈哈哈"}
+  record.balance为挂单数量，record.price为售价，record.info为备注信息(可选)
+
+挂买单
+  /userBalanceRecord/addBuyBalanceRecord
+  {"record.balance":20,"record.price":190,"record.info":"嘻嘻嘻"}
+  record.balance为挂单数量，record.price为买价，record.info为备注信息(可选)
+
+卖出
+  /userBalanceRecord/sell
+  {"record.brid":1}
+  record.brid为挂单id
+
+用户撤单
+  /userBalanceRecord/cancel
+  {"record.brid":1,"paypwd":""}
+  record.brid为挂单id, paypwd为用户输入的支付密码
+
+确认付款
+  /userBalanceRecord/pay
+  {"record.brid":1,"paypwd":""}
+  record.brid为挂单id, paypwd为用户输入的支付密码
+
+完成交易
+  /userBalanceRecord/finish
+  {"record.brid":1,"paypwd":""}
+  record.brid为挂单id, paypwd为用户输入的支付密码
+
+用户当前挂单信息查询
+  /userBalanceRecord/queryUserNowOrder
+  {}
+
+挂买单信息查询
+  /userBalanceRecord/queryBuys
+  {}
+
+点对点转账
+  /userBalanceRecord/sendToUser
+  {"record.auser.phone":"15080604020","record.balance":100,"record.price":10,"paypwd":""}
+  record.auser.phone为对方电话，record.balance为转账数据，record.price为卖出价格,  paypwd为用户输入的支付密码
+  
+用户挂单信息查询
+  /userBalanceRecord/queryUserOrders
+  {}
+
+ 用户修改微信
+   /user/modifyWechat
+  {"userInfo.wechat":"12345688"}
+  
+ 用户修改支付宝
+   /user/modifyAlipay
+  {"userInfo.alipay":"1223"}
+
+ 用户修改昵称
+  /user/modifyNickName
+    {"userInfo.nickname":"34d8"}
+
+ 根据登陆用户查询用户信息
+  /user/queryUserInfoByKey
+  {}
+
+成为vip
+  /user/vip
+  {"paypwd":""}
+  paypwd为用户输入的支付密码
+
+查询公告
+  /user/siteNotice/queryAll
+  {}
+
+查询资金变动
+  /user/queryBalanceRecord
+  {}
+
+后台部分=========================================================================================
+用户登陆
+  /manage/admin/login
+  {"admin.username":"adminuser","admin.password":"adminpwd"}
+  admin.username为用户名，admin.password为密码
+
+用户登出
+  /manage/admin/logout
+  {}
+
+发币功能
+  /manage/paybalancerecord/addPayBalanceRecord
+  {"record.balance":200,"record.target":1,"record.uid":2,"record.info":"测试1"}
+  record.balance为发币数量，record.target为发币类型，1为待释放币，2为dcoin币，record.uid为发币的用户，record.info为发币的说明附加信息
+
+待释放币查询功能
+  /manage/paybalanceupdate/query
+  {"updateInfo.user.phone":"15886618632","updateInfo.user.blockId":"5775356"}
+  updateInfo.user.phone为用户电话（可选），updateInfo.user.blockId为区块id（可选）
+
+加载配置信息
+  /manage/config/loadConfig
+  {}
+
+  查询用户挂单信息
+   /manage/balanceRecord/queryBalanceRecord
+    {"record.bstatus":"01","record.auser.blockId":"7904881"}所有参数可选
+  record.bstatus参数为挂单状态，record.auser.blockId为交易用户blockId
+
+  查询用户状态
+   /manage/user/queryAll
+   {"tbUser.isEnable":"n","tbUser.phone":"736","tbUser.blockId":"8888888"}所有参数可选
+  
+  修改账户状态
+   /manage/user/delete
+  {"tbUser.uid":1}
+   
+  还原账号状态
+    /manage/user/undelete
+   {"tbUser.uid":1}
+
+修改短信配置信息
+  /manage/config/modifySms
+  {"smsBean.product":"Dysmsapi","smsBean.domain":"dysmsapi.aliyuncs.com","smsBean.region1":"cn-hangzhou","smsBean.region2":"cn-hangzhou","smsBean.accesskeyid":"LTAI01oN4k6mir3j","smsBean.accesskeysecret":"H4BiKPZwUafc7ReOTXf94w4UmN6k2J","smsBean.sign":"胡辉煜","smsBean.template.validateCode":"SMS_136785015"}
+
+修改网站基础配置信息
+  /manage/config/modifySiteConfig
+  {"siteConfig.poundage":0.2,"siteConfig.payback":0.0005,"siteConfig.freezeHour":9,"siteConfig.vip":100,"siteConfig.userReward":1,"siteConfig.parentReward":0.1
+  ,"siteConfig.dayPrice":16,"siteConfig.dayMaxPrice":18,"siteConfig.minBalance":10,"siteConfig.maxBalance":10000
+  ,"siteConfig.shareUrl":"http://chndecoin.com/download/share.html?blockid="
+  ,"siteConfig.versionUrl":"http://localhost:40000/download/version.txt"
+  ,"siteConfig.apkUrl":"http://localhost:40000/download/decoin.apk"
+  ,"siteConfig.closed":"n","siteConfig.exchange":10,"siteConfig.exchangeReward":0.1}
+  siteConfig.poundage为交易手续费，siteConfig.payback为待释放币返回额，siteConfig.freezeHour为每日开盘时间，0-到这个时间段不可以交易,
+  siteConfig.vip为会员充值金额,siteConfig.userReward为用户交易的奖励比率,siteConfig.parentReward为用户交易的上级奖励比率,
+  siteConfig.dayPrice为最低货币价格，siteConfig.dayMaxPrice为最高货币价格，siteConfig.minBalance为最低交易数，siteConfig.maxBalance为最高交易数
+  siteConfig.shareUrl为分享网站链接，siteConfig.closed为网站是否关闭,siteConfig.exchange为复投比率，siteConfig.exchangeReward为复投上级奖励比率
+  siteConfig.apkUrl为apk下载链接，siteConfig.versionUrl为程序版本号链接
+  
+修改实名认证配置信息
+  /manage/config/modifyPhoneCheck
+  {"phoneCheck.appCode":"4988f0f6061241bd969defff43666ff4","phoneCheck.url":"http://fephone.market.alicloudapi.com/phoneCheck?idCard=%s&mobile=%s&name=%s"}
+
+添加公告信息
+  /manage/siteNotice/save
+  {"siteNotice.title":"测试公告标题","siteNotice.content":"测试公告内容"}
+ 
+公告信息的查询
+  /manage/siteNotice/queryAll
+  {}
+ 
+公告信息的修改
+  /manage/siteNotice/update
+  {"siteNotice.snid":1,"siteNotice.title":"测试公告标题","siteNotice.content":"测试公告内容","siteNotice.intop":"y","siteNotice.isEnable":"y"}
+
+修改后台管理员账户密码
+  /manage/user/updatePassword
+  {"oldPassword":"adminpwd","admin.password":"adminpwd"}
+
+后台交易记录查询
+  /manage/userbalancerecord/queryAll
+  {"record.user.phone":"15080604020","record.user.blockId":"8888888"}
+/userBalanceRecord/recast
+
+{"paypwd":"pwd456","record.balance":"17"}
+前台部分====================
+查询登陆用户团队信息
+	/user/queryTeam
+	{}

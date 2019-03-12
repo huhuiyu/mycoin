@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+  <typeAliases>
+    <package name="top.blockchain.entity" />
+  </typeAliases>
+  <mappers>
+    <mapper resource="top/blockchain/mapper/TbUserMapper.xml" />
+    <mapper resource="top/blockchain/mapper/TbTokenMapper.xml" />
+    <mapper resource="top/blockchain/mapper/TbTokenInfoMapper.xml" />
+    <mapper resource="top/blockchain/mapper/TbBlockIdsMapper.xml" />
+    <mapper resource="top/blockchain/mapper/TbUserInfoMapper.xml" />
+    <mapper resource="top/blockchain/mapper/TbConfigMapper.xml" />
+    <mapper resource="top/blockchain/mapper/TbUserPhoneCheckMapper.xml" />
+    <mapper resource="top/blockchain/mapper/TbAdminMapper.xml" />
+    <mapper resource="top/blockchain/mapper/TbBalanceRecordMapper.xml" />
+    <mapper resource="top/blockchain/mapper/TbPayBalanceRecordMapper.xml" />
+    <mapper resource="top/blockchain/mapper/TbPayBalanceUpdateMapper.xml" />
+    <mapper resource="top/blockchain/mapper/TbSiteNoticeMapper.xml" />
+    <mapper resource="top/blockchain/mapper/TbUserBalanceRecordMapper.xml" />
+
+  </mappers>
+</configuration>

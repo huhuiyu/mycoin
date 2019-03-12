@@ -1,0 +1,13 @@
+.left-div {
+  min-width: 200px;
+  max-width: 200px;
+  border-right: 10px solid #000;
+}
+
+.right-div {
+  overflow: auto;
+}
+
+.div-width {
+  min-width: 1300px;
+}

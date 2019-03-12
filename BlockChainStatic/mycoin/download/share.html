@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>分享</title>
+  <link rel="stylesheet" href="css/share.css">
+</head>
+
+<body>
+  <div class="vc-div">
+    <div>
+      <div id="divImage">
+        <img id="imgDownload" src="">
+      </div>
+
+      <div class="div-color">
+
+        <div>邀请码：
+          <span id="spBlockId"></span>
+        </div>
+        <div>
+          <span>扫描二维码进行下载</span>
+          <br>
+          <span>注册时记得填我的邀请码哦</span>
+          <br>
+          <span>期待您的加入！！</span>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <script type="text/javascript">
+    function getQueryString(name) {
+      var reg = new RegExp('(^|&)' + name + '=([^&]*)(&|$)', 'i');
+      var r = window.location.search.substr(1).match(reg);
+      if (r != null) {
+        return unescape(r[2]);
+      }
+      return '';
+    }
+    document.getElementById('imgDownload').src = 'images/android.png?ts=' + new Date().getTime();
+    document.getElementById('spBlockId').innerHTML = getQueryString('blockid');
+  </script>
+</body>
+
+</html>

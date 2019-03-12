@@ -1,0 +1,35 @@
+.font-css {
+  padding: 0px;
+  margin: 9px 120px 0px 126px;
+  width: 100%;
+  font-size: 1.1em;
+  position: fixed;
+  float: left;
+}
+.divbody {
+  height: 100%;
+  position: fixed;
+  width: 100%;
+  margin-top: 92px;
+}
+.centerh {
+  width: 90%;
+  height: 40%;
+  border: 2px solid royalblue;
+  margin: 50px auto;
+  padding: 40px auto;
+  text-align: left;
+  flex: 2;
+  box-shadow: 0px 0px 10px royalblue;
+}
+
+.ghgh1 {
+  text-align: center;
+    border: 1px solid rgba(60, 118, 61, 0.69);
+    margin: 21px auto;
+    width: 300px;
+    height: 400px;
+    font-size: 1.5rem;
+    padding: 50px 0px 0px 0px;
+    box-shadow: 1px 1px 31px 9px;
+}

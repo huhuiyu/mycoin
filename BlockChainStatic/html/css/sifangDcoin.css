@@ -1,0 +1,17 @@
+.fonc {
+  font-family: "Arial";
+  padding: 0px;
+  margin: 9px 120px 0px 90px;
+  width: 100%;
+  font-size: 1.1em;
+  position: fixed;
+  float: left;
+}
+.divbody {
+  max-height: 90%;
+  min-height: 34%;
+  position: fixed;
+  width: 100%;
+  margin-top: 92px;
+  overflow: scroll;
+}

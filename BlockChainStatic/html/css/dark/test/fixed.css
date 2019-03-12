@@ -1,0 +1,23 @@
+html,
+body {
+  height: 100%;
+  margin: 0px;
+  padding: 0px;
+}
+.fixed-div {
+  height: 100%;
+}
+
+.fixed-div .head {
+  position: fixed;
+  top: 0px;
+  width: 100%;
+  background-color: #0000ff;
+}
+
+.fixed-div .tail {
+  position: fixed;
+  bottom: 0px;
+  width: 100%;
+  background-color: #0000ff;
+}

@@ -1,0 +1,98 @@
+.djk {
+  overflow: hidden;
+  margin-bottom: 0px;
+  padding-bottom: 0px;
+  padding-top: 17px;
+}
+.dh {
+  width: 55px;
+  height: 55px;
+  margin: auto;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  font-size: 5.4rem;
+}
+.hdas {
+  float: left;
+  border: 1px solid rgba(204, 197, 196, 0);
+  /* width: 25%; */
+  /* height: 72px; */
+  height: 89px;
+  line-height: 89px;
+  background-color: rgba(175, 172, 172, 0.56);
+  /* position: fixed; */
+}
+.hdas img {
+  height: 89px;
+}
+.font-left {
+  width: 600px;
+  float: left;
+  margin-top: 20px;
+}
+.fen {
+  margin-left: 200px;
+}
+.right {
+  /* float: left; */
+  font-size: 0.7em;
+  /* width: 76%; */
+  /* margin: 1px 0px 2px 105px; */
+}
+.tuda {
+  width: 100%;
+  height: 89px;
+}
+.zuyu1 {
+  width: 163px;
+  max-width: 90%;
+  min-width: 10%;
+  position: fixed;
+  padding: 0px 0px 0px 32px;
+  margin: 0px 0px 0px 119px;
+  float: right;
+  text-align: center;
+}
+.zuoj {
+  padding: 0px 225px 0px 0px;
+  position: fixed;
+}
+
+.zuoyoubili5 {
+  min-width: 70%;
+  max-width: 20%;
+  flex: 1;
+}
+
+.zuoyoubili6 {
+  min-width: 20%;
+  max-width: 80%;
+  flex: 1;
+}
+.wi {
+  width: 100px;
+}
+
+.dog {
+  text-align: center;
+}
+
+.fliud-div {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.div50 {
+  min-width: 50%;
+  max-width: 50%;
+  flex: 1;
+}
+.lato {
+  float: left;
+  padding: 10px;
+  /* position: fixed; */
+}

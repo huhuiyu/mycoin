@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="top.blockchain.dao.TbAdminDAO">
+
+  <!-- 后台用户管理查询 -->
+  <select id="query" resultType="TbAdmin">
+    select * from TbAdmin
+  </select>
+
+  <!-- 后台用户管理界面的分页查询 -->
+  <select id="query_COUNT" resultType="int">
+    select count(*) from TbAdmin
+  </select>
+
+  <!-- 后台用户管理界面根据id修改用户状态 -->
+  <update id="delete" parameterType="TbAdmin">
+    update TbAdmin set isEnable='n' where aid=#{aid}
+  </update>
+
+  <!-- 后台用户管理界面根据id的修改密码和用户状态 -->
+  <update id="modify" parameterType="TbAdmin">
+    update TbAdmin set password=#{password},isEnable=#{isEnable} where aid=#{aid}
+  </update>
+
+  <!--后台用户管理根据用户名，密码和用户账号状态登录 -->
+  <select id="login" parameterType="TbAdmin" resultType="TbAdmin">
+    select * from TbAdmin where username=#{username} and password=#{password} and isEnable='y'
+  </select>
+
+  <!-- 按用户名查找 -->
+  <select id="queryFound" resultType="int" parameterType="TbAdmin">
+    select count(*) from TbAdmin where username=#{username}
+  </select>
+
+  <!-- 添加用户名和密码 -->
+  <insert id="add" parameterType="TbAdmin" useGeneratedKeys="true" keyProperty="aid">
+    insert into TbAdmin(username,password) values(#{username},#{password})
+  </insert>
+
+  <!-- 修改用户密码 -->
+  <update id="updatePassword" parameterType="TbAdmin">
+    update TbAdmin set password=#{password} where aid=#{aid}
+  </update>
+  
+  <select id="queryByKey" parameterType="TbAdmin" resultType="TbAdmin">
+  select aid,username,password,isEnable,regDate from TbAdmin
+  where aid=#{aid}
+  </select>
+</mapper>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="top.blockchain.dao.TbUserPhoneCheckDAO">
+
+  <!-- 按照电话查询电话实名认证信息 -->
+  <select id="queryByPhone" resultType="TbUserPhoneCheck" parameterType="java.lang.String">
+    select *,timestampdiff(minute,created,now()) 'lastCheck' from TbUserPhoneCheck where mobile=#{mobile}
+  </select>
+
+  <!-- 添加电话实名认证信息 -->
+  <insert id="add" parameterType="TbUserPhoneCheck">
+    insert into TbUserPhoneCheck(uid,status,msg,idCard,mobile,mobileType,name,sex,area,province,city,prefecture,birthday,addrCode,lastCode)
+    values(#{uid},#{status},#{msg},#{idCard},#{mobile},#{mobileType},#{name},#{sex},#{area},#{province},#{city},#{prefecture},#{birthday},#{addrCode},#{lastCode})
+  </insert>
+
+  <!-- 按照用户id修改电话实名认证信息 -->
+  <update id="modify" parameterType="TbUserPhoneCheck">
+    update TbUserPhoneCheck set created=now(),status=#{status},msg=#{msg},idCard=#{idCard},mobile=#{mobile},mobileType=#{mobileType}
+    ,name=#{name},sex=#{sex},area=#{area},province=#{province},city=#{city},prefecture=#{prefecture},birthday=#{birthday},addrCode=#{addrCode},lastCode=#{lastCode}
+    where uid=#{uid}
+  </update>
+
+</mapper>

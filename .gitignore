@@ -1,0 +1,12 @@
+BlockChainService/.gradle/
+BlockChainService/bin/
+BlockChainService/.classpath
+BlockChainService/.settings/
+BlockChainService/build/
+BlockChainService/gradle/
+BlockChainService/logs/
+BlockChainStatic/nginx/logs/
+BlockChainStatic/nginx/temp/
+BlockChainStatic/nginx-path.bat
+BlockChainStatic/spring-path.bat
+BlockChainStatic/browser.js

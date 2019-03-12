@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="top.blockchain.dao.TbBalanceRecordDAO">
+
+  <select id="queryByKey" parameterType="TbBalanceRecord" resultType="TbBalanceRecord">
+    select brid,balance,price,auid,buid,bstatus,brtype,info,created from TbBalanceRecord
+    where brid=#{brid}
+  </select>
+
+  <select id="queryAll" resultType="TbBalanceRecord" parameterType="TbBalanceRecord">
+    select br.brid,br.balance,br.price,br.auid,br.buid,br.bstatus,br.brtype,br.info,br.created,au.blockId 'auser.blockId',bu.blockId 'buser.blockId'
+    from TbBalanceRecord br
+    left join TbUser au on
+    br.auid=au.uid
+    left join TbUser bu on br.buid=bu.uid
+    <trim prefix="where" prefixOverrides="and">
+      <!-- 通过blockId过滤用户 -->
+      <if test="auser!=null and auser.blockId!=null and auser.blockId!=''">
+        and (au.blockId=#{auser.blockId} or bu.blockId=#{auser.blockId})
+      </if>
+      <!-- 通过bstatus过滤用户 -->
+      <if test="bstatus!=null and (bstatus=='01' or bstatus=='02' or bstatus=='03' or bstatus=='04' or bstatus=='05' or bstatus=='06')">
+        and br.bstatus=#{bstatus}
+      </if>
+    </trim>
+  </select>
+
+  <select id="queryAll_COUNT" resultType="int" parameterType="TbBalanceRecord">
+    select count(*) from TbBalanceRecord br
+    left join TbUser au on br.auid=au.uid
+    left join TbUser bu on br.buid=bu.uid
+    <trim prefix="where" prefixOverrides="and">
+      <!-- 通过blockId过滤用户 -->
+      <if test="auser!=null and auser.blockId!=null and auser.blockId!=''">
+        and (au.blockId=#{auser.blockId} or bu.blockId=#{auser.blockId})
+      </if>
+      <!-- 通过bstatus过滤用户 -->
+      <if test="bstatus!=null and (bstatus=='01' or bstatus=='02' or bstatus=='03' or bstatus=='04' or bstatus=='05')">
+        and br.bstatus=#{bstatus}
+      </if>
+    </trim>
+  </select>
+
+  <!-- 查询用户是否存在正在交易(不分买卖)的记录，只能有一笔记录 -->
+  <select id="queryUserRecord" parameterType="TbUser" resultType="TbBalanceRecord">
+    select br.brid,br.balance,br.price,br.auid,br.buid,br.info,br.created,br.bstatus
+    ,au.phone 'auser.phone',auser.wechat
+    'auser.userInfo.wechat',auser.alipay 'auser.userInfo.alipay',auser.nickname 'auser.userInfo.nickname'
+    ,bu.phone 'buser.phone',buser.wechat 'buser.userInfo.wechat',buser.alipay
+    'buser.userInfo.alipay',buser.nickname 'buser.userInfo.nickname'
+    from TbBalanceRecord br
+    left join TbUser
+    au on br.auid=au.uid
+    left join TbUserInfo auser on au.uid=auser.uid
+    left join TbUser bu on br.buid=bu.uid
+    left join TbUserInfo buser on
+    bu.uid=buser.uid
+    where (br.auid=#{uid} or br.buid=#{uid}) and
+    br.bstatus in ('01','02','03')
+  </select>
+
+  <!-- 添加用户挂卖单信息 -->
+  <insert id="addUserRecord" parameterType="TbBalanceRecord">
+    insert into TbBalanceRecord(balance,price,auid,bstatus,brtype,info)
+    values(#{balance},#{price},#{auid},'01','01',#{info})
+  </insert>
+
+  <!-- 添加用户挂买单信息 -->
+  <insert id="addUserBuyRecord" parameterType="TbBalanceRecord">
+    insert into TbBalanceRecord(balance,price,buid,bstatus,brtype,info)
+    values(#{balance},#{price},#{buid},'01','02',#{info})
+  </insert>
+
+  <!-- 修改挂单状态 -->
+  <update id="modifyStatus" parameterType="TbBalanceRecord">
+    update TbBalanceRecord set auid=#{auid},buid=#{buid},bstatus=#{bstatus},created=now() where brid=#{brid}
+  </update>
+
+  <!-- 查询挂买单的信息 -->
+  <select id="queryBuys" resultType="TbBalanceRecord">
+    select brid,price,balance,u.blockId 'buser.blockId' from TbBalanceRecord br
+    left join TbUser u on br.buid = u.uid
+    where bstatus = '01' and brtype = '02' order by created desc
+  </select>
+
+  <!-- 添加点对点交易信息 -->
+  <insert id="addSendToUserRecord" parameterType="TbBalanceRecord">
+    insert into TbBalanceRecord(balance,price,auid,buid,bstatus,brtype,info)
+    values(#{balance},#{price},#{auid},${buid},'05','01',#{info})
+  </insert>
+
+  <select id="queryBuys_COUNT" resultType="int">
+    select count(*) from TbBalanceRecord br
+    left join TbUser u on br.buid = u.uid
+    where bstatus = '01' and brtype = '02'
+  </select>
+
+  <!-- 查寻用户挂单的信息 -->
+  <select id="queryUserOrders" parameterType="TbUser" resultType="TbBalanceRecord">
+    select brid,price,balance,u.blockId 'buser.blockId' from TbBalanceRecord br
+    left join TbUser u on br.buid = u.uid
+    where
+    auid=#{uid} or buid=#{uid}
+    order by
+    created desc
+  </select>
+
+  <!-- 撤销24小时还没有交易的挂单 -->
+  <update id="cancelTimeoutOrders" parameterType="int">
+    update TbBalanceRecord set bstatus='04',info='交易超时，系统自动撤单'
+    where bstatus='01' and timestampdiff(hour,created,now()) &gt; #{times}
+  </update>
+
+  <!-- 冻结24小时交易没有完成的双方用户 -->
+  <update id="freezeUser" parameterType="int">
+    update TbUser set isEnable='n'
+    where uid in
+    (
+    select auid from TbBalanceRecord where bstatus in ('02') and timestampdiff(hour,created,now()) &gt;
+    #{times}
+    union
+    select buid from TbBalanceRecord where bstatus in ('03') and timestampdiff(hour,created,now()) &gt; #{times}
+    )
+  </update>
+
+  <!-- 还原24小时交易没有完成的双方用户的资金 -->
+  <update id="resetFreezeUser" parameterType="int">
+    update TbUserInfo set balance=balance+freeze,freeze=0
+    where uid in
+    (
+    select auid from TbBalanceRecord where bstatus in ('02','03') and
+    timestampdiff(hour,created,now()) &gt; #{times}
+    union
+    select buid from TbBalanceRecord where bstatus in ('02','03') and timestampdiff(hour,created,now()) &gt; #{times}
+    )
+  </update>
+
+  <!-- 撤销24小时还没有完成的挂单 -->
+  <update id="resetTimeoutOrders" parameterType="int">
+    update TbBalanceRecord set bstatus='04',info='交易超时，系统自动撤单和冻结账号'
+    where bstatus in ('02','03') and timestampdiff(hour,created,now()) &gt; #{times}
+  </update>
+
+  <select id="queryUserOrders_COUNT" parameterType="TbUser" resultType="int">
+    select count(*) from TbBalanceRecord br
+    left join TbUser u on br.buid = u.uid
+    where auid=#{uid} or buid=#{uid}
+    order by
+    created desc
+  </select>
+
+  <select id="querybstatus" resultType="TbBalanceRecord">
+    select auid,price,balance,u.blockId 'auser.blockId' from TbBalanceRecord br
+    left join TbUser u on br.auid = u.uid
+    where bstatus in ('01')
+  </select>
+
+  <select id="querybstatucmyself" parameterType="TbBalanceRecord" resultType="TbBalanceRecord">
+    select brid,balance,price,auid,buid,info,created,bstatus,brtype
+    from TbBalanceRecord where auid=#{auid}
+    order by
+    created desc
+  </select>
+</mapper>

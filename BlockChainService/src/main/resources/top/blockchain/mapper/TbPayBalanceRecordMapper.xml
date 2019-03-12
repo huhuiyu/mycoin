@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="top.blockchain.dao.TbPayBalanceRecordDAO">
+
+  <insert id="save" parameterType="TbPayBalanceRecord">
+    insert into TbPayBalanceRecord(balance,target,uid,aid,info)
+    values(#{balance},#{target},#{uid},#{aid},#{info})
+  </insert>
+
+  <update id="update" parameterType="TbPayBalanceRecord">
+    update TbPayBalanceRecord set balance=#{balance},target=#{target},uid=#{uid},aid=#{aid},info=#{info},created=now()}
+    where pbrid=#{pbrid}
+  </update>
+
+  <update id="delete" parameterType="TbPayBalanceRecord">
+    delete from TbPayBalanceRecord
+    where pbrid=#{pbrid}
+  </update>
+
+  <select id="queryByKey" parameterType="TbPayBalanceRecord" resultType="TbPayBalanceRecord">
+    select pbrid,balance,target,uid,aid,info,created from TbPayBalanceRecord
+    where pbrid=#{pbrid}
+  </select>
+
+  <select id="queryAll" resultType="TbPayBalanceRecord">
+    select pbrid,balance,target,uid,aid,info,created from TbPayBalanceRecord
+  </select>
+
+  <select id="queryAll_COUNT" resultType="int">
+    select count(*) from TbPayBalanceRecord
+  </select>
+
+  <!-- 发币的功能语句 -->
+  <select id="queryUserByKey" parameterType="TbUserInfo" resultType="TbUserInfo">
+    select * from TbUserInfo where uid=#{uid}
+  </select>
+
+  <!-- 更新用户资金信息 -->
+  <update id="updateUserBalance" parameterType="TbUserInfo">
+    update TbUserInfo set balance=#{balance},paybalance=#{paybalance},lastupdate=now()
+    where uid=#{uid}
+  </update>
+  
+  
+</mapper>

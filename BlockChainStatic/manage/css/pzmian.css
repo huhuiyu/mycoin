@@ -1,0 +1,16 @@
+.div-pal {
+  margin: 0px auto;
+  display: flex; /*压力布局*/
+  justify-content: space-around; /*多余的宽度成为环绕空白*/
+  padding: 20px;
+  flex-wrap: wrap;
+}
+
+.btn-jx{
+  padding:5px 50px  5px 50px;
+  background-color: rgb(213, 245, 255);
+}
+
+.spanzhi{
+  color: rgb(241, 6, 6);
+}

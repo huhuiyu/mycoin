@@ -1,0 +1,73 @@
+.djk {
+  overflow: hidden;
+  margin-bottom: 0px;
+  padding-bottom: 0px;
+  padding-top: 17px;
+}
+.dh {
+  font-size: 50px;
+  height: 60px;
+  width: 69px;
+  margin: 103px 6px;
+  padding: 6px 10px 0px 10px;
+  background-color: rgba(240, 248, 255, 0.02);
+  position: fixed;
+}
+.hdas {
+  margin: 15px auto;
+  border-top-left-radius: 50px;
+  border-top-right-radius: 50px;
+  border-bottom-left-radius: 50px;
+  border-bottom-right-radius: 50px;
+  width: 80px;
+  height: 80px;
+  background-color: rgba(175, 172, 172, 0.56);
+}
+
+#yoot {
+  font-size: 20px;
+  padding-top: 5px;
+}
+.fontheat {
+  text-align: center;
+}
+.ghgh {
+  text-align: center;
+  border: 1px solid rgba(60, 118, 61, 0.69);
+  margin: 21px auto;
+  width: 300px;
+  height: 200px;
+  font-size: 30px;
+  padding: 50px 0px 0px 0px;
+  box-shadow: 1px 1px 31px 9px;
+}
+.font-css {
+  font-size: 20px;
+  padding-left: 45px;
+}
+.foot {
+  height: 27%;
+  margin: 4px 0px 0px 0px;
+}
+.hend {
+  width: 62%;
+  margin: 50px auto;
+  background: #00ddff;
+  font-size: 12px;
+  font-family: "微软雅黑";
+  color: aliceblue;
+  text-align: center;
+}
+.hend:active {
+  box-shadow: 0px 0px 13px rgb(228, 198, 198);
+  background: #00ddff;
+  color: aliceblue;
+}
+.div-body1 {
+  margin: 64px 0px 0px 1px;
+  padding: -28px 0px 0px 0px;
+  max-height: 100%;
+  min-height: 100%;
+  width: 100%;
+  position: fixed;
+}

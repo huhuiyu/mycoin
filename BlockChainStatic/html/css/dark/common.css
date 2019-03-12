@@ -1,0 +1,250 @@
+/* 字符换行 */
+* {
+  word-break: break-all;
+}
+
+@font-face {
+  font-family:'msyh';
+  src:url('../../fonts/msyh.ttf') format('truetype');
+}
+
+/* 页面填满 */
+html,
+body {
+  height: 100%;
+}
+
+/* 背景图片 */
+body {
+  background-color: #515055;
+  background-size: cover;
+  color: #aab8bd;
+  font-size: 20px;
+  font-family: 'msyh';
+}
+
+/* 半透明背景 */
+.alpha-div {
+  background-color: #272727;
+}
+
+.alpha-div2 {
+  background-color: #414548;
+}
+
+.h100 {
+  height: 100%;
+}
+
+.h80 {
+  height: 80%;
+}
+
+.w100 {
+  width: 100%;
+}
+
+.w80 {
+  width: 70%;
+}
+
+.w70 {
+  width: 70%;
+}
+
+.w60 {
+  width: 60%;
+}
+
+.w50 {
+  width: 50%;
+}
+
+.pd5 {
+  padding: 5px;
+}
+
+.pd10 {
+  padding: 10px;
+}
+
+.pd15 {
+  padding: 15px;
+}
+
+.pd20 {
+  padding: 20px;
+}
+
+.pd40 {
+  padding: 40px;
+}
+
+.pd80 {
+  padding: 80px;
+}
+
+.mr50 {
+  margin: 50px;
+}
+
+.mr30 {
+  margin: 30px;
+}
+.mt30 {
+  margin-top: 30px !important;
+}
+
+/* 压力布局 */
+.myflex {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.flex20 {
+  flex: 2;
+}
+
+.flex80 {
+  flex: 8;
+}
+
+.flex60 {
+  flex: 6;
+}
+
+.flex40 {
+  flex: 4;
+}
+
+.font08 {
+  font-size: 0.8rem;
+}
+
+.font12 {
+  font-size: 1.2rem;
+}
+
+.font14 {
+  font-size: 1.4rem;
+}
+
+.font16 {
+  font-size: 1.6rem;
+}
+
+.font18 {
+  font-size: 1.8rem;
+}
+
+.font20 {
+  font-size: 2rem;
+}
+
+.mg12 {
+  margin: 12px;
+}
+
+/* 上中下布局 */
+body,
+html,
+.div-main {
+  margin: 0px;
+  padding: 0px;
+}
+
+.div-head,
+.div-foot {
+  width: 100%;
+  position: fixed;
+}
+
+.div-head {
+  top: 0px;
+  background-color: #272727;
+}
+
+.div-foot {
+  bottom: 0px;
+  background-color: #272727;
+}
+
+.div-body {
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+/* 上中下布局结束 */
+
+/*内容垂直居中的div*/
+.vc-div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* iconfont */
+.iconfont {
+  font-family: 'iconfont' !important;
+  font-style: normal;
+  /* font-size: .8em; */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+@font-face {
+  font-family: 'iconfont';  /* project id 717864 */
+  src: url('//at.alicdn.com/t/font_717864_xe1xtk8o36j.eot');
+  src: url('//at.alicdn.com/t/font_717864_xe1xtk8o36j.eot?#iefix') format('embedded-opentype'),
+  url('//at.alicdn.com/t/font_717864_xe1xtk8o36j.woff') format('woff'),
+  url('//at.alicdn.com/t/font_717864_xe1xtk8o36j.ttf') format('truetype'),
+  url('//at.alicdn.com/t/font_717864_xe1xtk8o36j.svg#iconfont') format('svg');
+}
+
+/* 表单 */
+.myinput-div {
+  margin: 0px 10px 20px 10px;
+}
+.myinput-div .myinput {
+  border: 0px solid #000000;
+  background-color: transparent;
+  border-bottom: 2px solid #00ddff;
+  outline: none;
+}
+
+.myinput-div .myinput:focus {
+  border: 0px solid #000000;
+  background-color: transparent;
+  border-bottom: 2px solid #00ddff;
+}
+
+.myinput-div .myinput::-ms-input-placeholder {
+  padding-left: 30px;
+}
+.myinput-div .myinput::-webkit-input-placeholder {
+  padding-left: 30px;
+}
+
+.myinput-div .mybutton {
+  margin: 5px;
+  padding: 10px 50px 10px 50px;
+  background-color: #00ddff;
+  color: #ffffff;
+  border-radius: 30px;
+}
+.mybutton2 {
+  background-color: #00ddff;
+  color: #ffffff;
+}
+/*把矩形沿对角线切开，最后，旋转90度这样就得到了一个大于号了*/
+
+.arrow:after {
+  content: ' ';
+  display: inline-block;
+  height: 12px;
+  width: 12px;
+  border-width: 2px 2px 0 0;
+  border-style: solid;
+  -webkit-transform: matrix(0.71, 0.71, -0.71, 0.71, 0, 0);
+  transform: matrix(0.71, 0.71, -0.71, 0.71, 0, 0);
+}

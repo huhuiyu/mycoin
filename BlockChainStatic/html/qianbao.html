@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>钱包</title>
+  <link rel="stylesheet" href="lib/bootstrap.min.css">
+  <link rel="stylesheet" href="css/common.css">
+  <link rel="stylesheet" href="css/wode.css">
+  <link rel="stylesheet" href="css/qianbao.css">
+  <style>
+    .icon {
+      width: 1em;
+      height: 1em;
+      vertical-align: -0.15em;
+      fill: currentColor;
+      overflow: hidden;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="div-main">
+
+    <div class="div-head">
+      <div class="alpha-div">
+        <div class="text-center alpha-div pd10">你好</div>
+      </div>
+    </div>
+
+    <div class="div-body">
+
+      <div class="tuda pd10">
+        <div class="hdas">
+          <img src="./images/fxcoin.png" alt="" class="img-responsive">
+        </div>
+        <div class="lato">
+          <!-- <div class="right" id="divUserInfo"></div> -->
+          <div class="right">
+            用户电话：<span id="divUserInfo"></span>
+          </div>
+          <!-- <div class="right">
+            <span id="tokenId"></span>
+          </div> -->
+          <div class="right">邀请码：
+            <span id="jdID"></span>
+          </div>
+          <div class="right">推荐的人：
+            <span id="spLinkman"></span>
+          </div>
+
+        </div>
+        <div class="clearfix"></div>
+      </div>
+      <div class="clearfix"></div>
+      <!--  
+      <div class="zuoyou topxiangshou1 alpha-div2">
+        <div class="zuoyoubili50 pd10">
+          <span class="iconfont">&#xe627;</span>
+          待释放fxcoin
+        </div>
+        <div class="zuoyoubili50 text-right pd10">
+          <span id="divdaisifang" class="wi"></span>
+        </div>
+      </div>
+       -->
+      <div class="pd10"></div>
+      <div class="zuoyou topxiangshou1 bianxian  alpha-div2">
+        <div class="zuoyoubili2 pd10" id="jfen">
+          <span class="iconfont text-danger">&#xe758;</span>
+          FX
+        </div>
+        <div class="zuoyoubili1">
+          <span class="arrow"></span>
+        </div>
+      </div>
+
+      <div class="zuoyou topxiangshou1 bianxian3 alpha-div2">
+        <div class="zuoyoubili2 pd10" id="cny">
+          <span>
+            <svg class="icon" aria-hidden="true">
+              <use xlink:href="#icon-zijinguiji"></use>
+            </svg>
+          </span>
+          CNY
+        </div>
+        <div class="zuoyoubili1"><span class="arrow"></span></div>
+      </div>
+
+      <div class="zuoyou topxiangshou1 bianxian3 alpha-div2">
+        <div class="zuoyoubili2 pd10" id="btc">
+          <!-- <span class="iconfont text-primary">&#xe605;</span> -->
+          <span>
+            <svg class="icon" aria-hidden="true">
+              <use xlink:href="#icon-btc-"></use>
+            </svg>
+          </span>
+          BTC
+        </div>
+        <div class="zuoyoubili1"><span class="arrow"></span></div>
+      </div>
+
+
+      <div class="zuoyou topxiangshou1 bianxian3 alpha-div2">
+        <div class="zuoyoubili2 pd10" id="eos">
+          <span class="iconfont text-primary">&#xe648;</span>
+          EOS
+        </div>
+        <div class="zuoyoubili1"><span class="arrow"></span></div>
+      </div>
+
+      <div class="zuoyou topxiangshou1 bianxian3 alpha-div2">
+        <div class="zuoyoubili2 pd10" id="ltc">
+          <span>
+            <svg class="icon" aria-hidden="true">
+              <use xlink:href="#icon-bi1"></use>
+            </svg>
+          </span>
+          LTC
+        </div>
+        <div class="zuoyoubili1"><span class="arrow"></span></div>
+      </div>
+
+
+      <div class="zuoyou topxiangshou1 bianxian3 alpha-div2">
+        <div class="zuoyoubili2 pd10" id="eth">
+          <span class="iconfont text-primary">&#xe607;</span>
+          ETH
+        </div>
+        <div class="zuoyoubili1"><span class="arrow"></span></div>
+      </div>
+
+      <div class="zuoyou topxiangshou1 bianxian3 alpha-div2">
+        <div class="zuoyoubili2 pd10" id="spcoin">
+          <span>
+            <svg class="icon" aria-hidden="true">
+              <use xlink:href="#icon-qianbi2"></use>
+            </svg>
+          </span>
+          CC
+        </div>
+        <div class="zuoyoubili1"><span class="arrow"></span></div>
+      </div>
+
+
+
+      <!-- <div class="zuoyou topxiangshou1  bianxian1 alpha-div2">
+        <div class="zuoyoubili2 pd10" id="btnhoot">
+          <span class="iconfont">&#xe667;</span>
+          账单
+        </div>
+        <div class="zuoyoubili1">
+          <span class="arrow"></span>
+        </div>
+      </div> -->
+
+
+      <!-- <div class="zuoyou topxiangshou1 bianxian alpha-div2">
+        <div class="zuoyoubili2 pd10" id="btnbizz">
+          <span class="iconfont">&#xe645;</span>
+          币增值
+        </div>
+        <div class="zuoyoubili1">
+          <span class="arrow"></span>
+        </div>
+      </div>
+
+
+      <div class="zuoyou topxiangshou1 bianxian1 alpha-div2">
+        <div class="zuoyoubili2 pd10" id="btndib">
+          <span class="iconfont">&#xe644;</span>
+          贷币
+        </div>
+        <div class="zuoyoubili1">
+          <span class="arrow"></span>
+        </div>
+      </div> -->
+
+      <!-- <div class="zuoyou topxiangshou1 bianxian alpha-div2">
+        <div class="zuoyoubili2 pd10" id="btndh">
+          <span class="iconfont">&#xe628;</span>
+          币种兑换
+        </div>
+        <div class="zuoyoubili1">
+          <span class="arrow"></span>
+        </div>
+      </div> -->
+
+
+      <div class="zuoyou topxiangshou1 bianxian  alpha-div2">
+        <div class="zuoyoubili2 pd10" id="btnhui">
+          <span class="iconfont">&#xe643;</span>
+          会员升级
+        </div>
+        <div class="zuoyoubili1">
+          <span class="arrow"></span>
+        </div>
+      </div>
+    </div>
+
+    <div class="div-foot">
+      <div class="btn-group btn-group-justified booth daohangtiaoxia">
+        <span class="btn" id="btnqianbao">
+          <i class="glyphicon glyphicon-yen"></i>
+          <p>钱包</p>
+        </span>
+        <span class="btn" id="btnjiaoyi">
+          <i class="glyphicon glyphicon-sort"></i>
+          <p>交易</p>
+        </span>
+        <span class="btn" id="btnwode">
+          <i class="glyphicon glyphicon-user"></i>
+          <p>我的</p>
+        </span>
+      </div>
+    </div>
+  </div>
+
+  </div>
+  <!-- 通用对话框开始 -->
+  <div>
+    <!-- 等待对话框 -->
+    <div class="modal" data-keyboard="false" data-backdrop="false" role="dialog" tabindex="-1" id="wait-dialog" style="z-index: 1999;">
+      <div class="modal-dialog modal-sm" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title" id="wait-dialog-title"></h4>
+          </div>
+          <div class="modal-body">
+            <div>
+              <div id="wait-dialog-info" class="h4 text-center"></div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+    <!-- 等待对话框结束 -->
+    <!-- 确定对话框 -->
+    <div class="modal" role="dialog" tabindex="-1" id="alert-dialog" style="z-index: 1998;">
+      <div class="modal-dialog modal-sm" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+            <h4 class="modal-title" id="alert-dialog-title"></h4>
+          </div>
+          <div class="modal-body">
+            <div>
+              <div id="alert-dialog-info" class="h4 text-center"></div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <span class="btn btn-primary" data-dismiss="modal">确定</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- 确定对话框结束 -->
+
+    <!-- 确认对话框 -->
+    <div class="modal" role="dialog" data-keyboard="false" data-backdrop="false" tabindex="-1" id="confirm-dialog" style="z-index: 1997;">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title" id="confirm-dialog-title"></h4>
+          </div>
+          <div class="modal-body">
+            <div>
+              <div id="confirm-dialog-info" class="h4 text-center"></div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <span class="btn btn-primary" id="confirm-dialog-yes">是</span>
+            <span class="btn btn-primary" id="confirm-dialog-no">否</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- 确认对话框结束 -->
+
+    <!-- 自定义对话框 -->
+    <div class="modal" data-keyboard="false" data-backdrop="false" role="dialog" tabindex="-1" id="custom-dialog" style="z-index: 1990;">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title" id="custom-dialog-title"></h4>
+          </div>
+          <div class="modal-body">
+            <div id="custom-dialog-body"></div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+    <!-- 自定义对话框结束 -->
+  </div>
+  <!-- 通用对话框结束 -->
+  <script type="text/javascript" src="lib/jquery.min.js"></script>
+  <script type="text/javascript" src="lib/bootstrap.min.js"></script>
+  <script type="text/javascript" src="lib/bs-dialog.js"></script>
+  <script type="text/javascript" src="lib/data-service.js"></script>
+  <script type="text/javascript" src="//at.alicdn.com/t/font_717864_92o4tktirni.js"></script>
+  <script type="text/javascript" src="js/common.js"></script>
+  <script type="text/javascript" src="js/qianbao.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="top.blockchain.dao.TbUserBalanceDAO">
+
+  <!-- 添加用户账号返回账户 -->
+  <insert id="add" parameterType="TbUserBalance" useGeneratedKeys="true" keyProperty="ubid">
+    insert into
+    TbUserBalance(uid,balance,usedbalance,lastupdate)valuse(#{uid},#{balance},#{usedbalance},now())
+  </insert>
+
+  <!-- 查询用户账号返回账户表 -->
+  <select id="query" resultType="TbUserBalance">
+    select * from TbUserBalance
+  </select>
+
+  <!-- 分页查询用户账号返回账户表 -->
+  <select id="query_COUNT" resultType="int">
+    select count(*) from TbUserBalance
+  </select>
+
+  <!-- 根据ubid修改lastupdate，balance，usedbalance -->
+  <update id="modify" parameterType="TbUserBalance">
+    update TbUserBalance set
+    lastupdate=now(),balance=#{balance},usedbalance=#{usedbalance} where ubid=#{ubid}
+  </update>
+
+</mapper>

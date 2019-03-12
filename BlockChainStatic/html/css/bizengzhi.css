@@ -1,0 +1,25 @@
+.font-css {
+  padding: 0px;
+  margin: 9px 120px 0px 120px;
+  width: 100%;
+  font-size: 1rem;
+  position: fixed;
+  float: left;
+}
+.divbody {
+  height: 100%;
+  position: fixed;
+  width: 100%;
+  margin-top: 100px;
+}
+.centerh {
+  width: 90%;
+  height: 40%;
+  border: 2px solid #fff;
+  margin: 50px auto;
+  padding:40px auto;
+  text-align: center;
+  box-shadow: 1px 0px 20px;
+  flex: 2;
+  font-size: 1.5rem;
+}

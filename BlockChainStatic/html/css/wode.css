@@ -1,0 +1,69 @@
+/*顶级div划分内部div左右*/
+.zuoyou{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+/*div比例*/
+.zuoyoubili1 {
+  min-width: 10%;
+  max-width: 90%;
+  flex: 1;
+}
+.zuoyoubili2 {
+  min-width: 90%;
+  max-width: 10%;
+  flex: 1;
+}
+.zuoyoubili4 {
+  min-width: 40%;
+  max-width: 60%;
+  flex: 1;
+}
+
+
+.zuoyoubili3 {
+  min-width: 60%;
+  max-width: 40%;
+  flex: 1;
+}
+
+.zuoyoubili50{
+  min-width: 50%;
+  max-width: 50%;
+  flex: 1;
+}
+
+
+
+
+/*选项设置高度*/
+.topxiangshou{
+  height:40px;
+}
+
+.topxiangshou1{
+  height:50px;
+}
+
+/* 选项上下边框样式 */
+.bianxian{
+  border-top: 10px solid  rgb(248, 245, 245);
+  border-bottom: 2px solid   rgb(233, 230, 230);
+}
+.bianxian1{
+  border-bottom: 10px solid  rgb(248, 245, 245);
+}
+
+.bianxian2{
+  border-top: 2px solid rgb(233, 230, 230);
+}
+
+.bianxian3{
+  border-bottom: 2px solid   rgb(233, 230, 230);
+}
+
+
+
+

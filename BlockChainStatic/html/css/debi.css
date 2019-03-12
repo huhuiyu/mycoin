@@ -1,0 +1,91 @@
+.font-css1{
+  font-size: 1em;
+}
+.font-css2 {
+  font-size: 1.3em;
+}
+.font-css{
+  padding: 0px;
+  margin: 0px 120px 0px 120px;
+  width: 50px;
+  font-family: "微软雅黑";
+}
+.font-div {
+  margin:14px 0px -10px 1px;
+  width: 100%;
+  
+}
+.div-marigin{
+  margin-top: 35%;
+}
+.text-align{
+  float: left;
+  width: 100%;
+ 
+  font-size: 0.7em;
+}
+.fon-lad{
+  float: left;
+  border: 2px solid #00ddff;
+  width: 20%;
+  text-align: center;
+  position: relative;
+}
+.fon-lad:active{
+  color: #000;
+  border: 2px solid #00ddff;
+
+  height: 25px;
+}
+.p11{
+  padding: 8px;
+}
+/*顶级div划分内部div左右*/
+.zuoyou{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+/*div比例*/
+.zuoyoubili1 {
+  min-width: 20%;
+  max-width: 20%;
+  flex: 1;
+  text-align: center;
+}
+.zuoyoubili2 {
+  min-width: 80%;
+  max-width: 80%;
+  flex: 1;
+}
+.zuoyoubili4 {
+  min-width: 87%;
+  max-width: 87%;
+  flex: 1;
+}
+.zuoyoubili3 {
+  min-width: 13%;
+  max-width: 30%;
+  flex: 1;
+}
+
+.zuoyoubili8 {
+  min-width: 50%;
+  max-width: 50%;
+  flex: 1;
+}
+
+/*选项设置高度*/
+.topxiangshou{
+  height:40px;
+}
+
+.topxiangshou1{
+  height:50px;
+}
+
+
+
+
+

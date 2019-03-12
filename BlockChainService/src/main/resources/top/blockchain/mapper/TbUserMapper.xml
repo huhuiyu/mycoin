@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="top.blockchain.dao.TbUserDAO">
+
+  <!-- 查询用户电话号码,密码,用户状态 -->
+  <select id="login" resultType="TbUser" parameterType="TbUser">
+    select * from TbUser where phone=#{phone} and password=#{password}
+  </select>
+
+  <!-- 查询用户状态 -->
+  <select id="queryphone" resultType="TbUser" parameterType="TbUser">
+    select * from TbUser where phone=#{phone}
+  </select>
+
+  <!-- 添加用户信息 -->
+  <insert id="add" parameterType="TbUser" useGeneratedKeys="true" keyProperty="uid">
+    insert into TbUser(phone,tokenId,password,paypwd,blockId,linkman)
+    values(#{phone},#{tokenId},#{password},#{paypwd},#{blockId},#{linkman})
+  </insert>
+
+  <!-- 按照用户的id修改用户状态为n -->
+  <update id="delete" parameterType="TbUser">
+    update TbUser set isEnable='n' where uid=#{uid}
+  </update>
+
+  <!-- 按照用户的id修改用户密码和支付密码 -->
+  <update id="modify" parameterType="TbUser">
+    update TbUser set password=#{password},paypwd=#{paypwd} where uid=#{uid}
+  </update>
+
+  <!-- 根据blockId查询uid -->
+  <select id="blockid" resultType="int" parameterType="TbUser">
+    select uid from TbUser where blockId=#{blockId}
+  </select>
+
+  <!-- 根据phone查找 -->
+  <select id="queryFound" resultType="int" parameterType="TbUser">
+    select count(*) from TbUser where phone=#{phone}
+  </select>
+
+  <!-- 按照用户的id修改用户密码 -->
+  <update id="modifyPassword" parameterType="TbUser">
+    update TbUser set password=#{password} where uid=#{uid}
+  </update>
+
+  <!-- 按照用户的id修改支付密码 -->
+  <update id="modifyPaypwd" parameterType="TbUser">
+    update TbUser set paypwd=#{paypwd} where uid=#{uid}
+  </update>
+
+  <!-- 通过用户的电话修改用户密码 -->
+  <update id="foundPassword" parameterType="TbUser">
+    update TbUser set password=#{password} where phone=#{phone}
+  </update>
+
+  <!-- 后台用户管理相关语句 -->
+  <!-- 查询用户表的数据，用户密码和支付密码加密 -->
+  <select id="queryAll" resultType="TbUser" parameterType="TbUser">
+    select pu.uid,pu.phone,"****" password,"****" paypwd,pu.blockId,pu.linkman,pu.isEnable,pu.regDate,
+    u.blockId 'linkuser.blockId',
+    ui.balance 'userInfo.balance',ui.freeze
+    'userInfo.freeze',ui.paybalance 'userInfo.paybalance',ui.nickname 'userInfo.nickname'
+    from TbUser pu
+    inner join TbUser u on pu.linkman=u.uid
+    inner join TbUserInfo ui on pu.uid=ui.uid
+    <trim prefix="where" prefixOverrides="and">
+      <!-- 通过isEnable过滤用户 -->
+      <if test="isEnable=='y'.toString() or isEnable=='n'.toString()">
+        and pu.isEnable=#{isEnable}
+      </if>
+      <if test="phone!=null and phone!=''">
+        and pu.phone like #{phone}
+      </if>
+      <if test="blockId!=null and blockId!=''">
+        and (pu.blockId = #{blockId} or u.blockId = #{blockId})
+      </if>
+    </trim>
+  </select>
+
+  <!-- 查询用户数量 -->
+  <select id="query_COUNT" resultType="int" parameterType="TbUser">
+    select count(*) from TbUser pu
+    inner join TbUser u on pu.linkman=u.uid
+    inner join TbUserInfo ui on pu.uid=ui.uid
+    <trim prefix="where" prefixOverrides="and">
+      <!-- 通过isEnable过滤用户 -->
+      <if test="isEnable=='y'.toString() or isEnable=='n'.toString()">
+        and pu.isEnable = #{isEnable}
+      </if>
+      <if test="phone!=null">
+        and pu.phone like #{phone}
+      </if>
+      <if test="blockId!=null and blockId!=''">
+        and (pu.blockId = #{blockId} or u.blockId = #{blockId})
+      </if>
+    </trim>
+  </select>
+
+
+  <!-- 按照用户的id修改用户状态为Y -->
+  <update id="undelete" parameterType="TbUser">
+    update TbUser set isEnable='y' where uid=#{uid}
+  </update>
+
+  <!-- 用户信息校验 -->
+  <select id="queryByPhone" resultType="TbUser" parameterType="TbUser">
+    select * from TbUser where phone=#{phone}
+  </select>
+
+  <!-- 查询登陆用户团队的实名认证和电话号码 -->
+  <select id="queryTeam" resultType="TbUser" parameterType="TbUser">
+    select u.blockId,u.phone,ui.nickname 'userInfo.nickname',u.regDate from TbUser u
+    left join TbUserInfo ui on u.uid=ui.uid
+    where
+    u.uid=#{uid} or u.linkman=#{uid}
+  </select>
+
+  <!-- 按照主键查询用户信息 -->
+  <select id="queryByKey" resultType="TbUser" parameterType="TbUser">
+    select * from TbUser where uid=#{uid}
+  </select>
+
+</mapper>

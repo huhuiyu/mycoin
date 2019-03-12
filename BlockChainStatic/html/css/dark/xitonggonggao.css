@@ -1,0 +1,43 @@
+.body-cent1 {
+  max-width: 100%;
+  min-width: 100%;
+  border: 1px solid rgb(65, 174, 225);
+  position: fixed;
+  margin: 80px 0px 0px 0px;
+  overflow: scroll;
+}
+.div-min1 {
+  margin: 1px 0px 0px 0px;
+  border: 1px solid rgb(65, 174, 225);
+  width: 100%;
+  height: 36%;
+  background: rgba(107, 86, 189, 0.45);
+}
+
+.bianxian4 {
+  border-bottom: 2px solid rgb(65, 174, 225);
+}
+
+.zt {
+  padding-left: 30px;
+  font-size: 1.5pc;
+  color: rgb(231, 235, 23);
+}
+
+.bj {
+  background: rgba(116, 116, 243, 0.55);
+}
+
+.span-hover {
+  color: aqua;
+  font-size: 16px;
+  padding-left: 120px;
+}
+.xizhiti{
+  font-weight: bold;
+}
+#divContentDetail{
+  font-weight: bold;
+  color: rgb(214, 214, 195);
+  font-size: 15px;
+}

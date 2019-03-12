@@ -1,0 +1,33 @@
+
+/*按钮样式*/
+.btnMaichu {
+  background-color: #00ddfa;
+  color: #ffffff;
+  padding: 5px 100px 5px 100px;
+  border-radius: 15rem 15rem 15rem 15rem;
+}
+
+/*边框样式*/
+.borderdivwaikuang{
+   border: 3px solid #00ddfa;
+   padding: 10px 60px 10px 10px;
+   border-radius: 1rem 1rem 1rem 1rem;
+}
+
+/*文本框隐身*/
+.inputborderpx{
+  border-left: 0px;
+  border-top: 0px;
+  border-right: 0px;
+  border-bottom:0px; 
+  background-color: transparent;
+  outline: none;
+}
+.inputborderpx2{
+  border-left: 0px;
+  border-top: 0px;
+  border-right: 0px;
+  border-bottom:0px; 
+  background-color: transparent;
+  outline: none;
+}

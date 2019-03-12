@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="top.blockchain.dao.TbPayBalanceUpdateDAO">
+
+  <insert id="save" parameterType="TbPayBalanceUpdate">
+    insert into TbPayBalanceUpdate(balance,uid)
+    values(#{balance},#{uid})
+  </insert>
+
+  <update id="update" parameterType="TbPayBalanceUpdate">
+    update TbPayBalanceUpdate set balance=#{balance},uid=#{uid},created=#{created}
+    where bruid=#{bruid}
+  </update>
+
+  <update id="delete" parameterType="TbPayBalanceUpdate">
+    delete from TbPayBalanceUpdate
+    where bruid=#{bruid}
+  </update>
+
+  <select id="queryByKey" parameterType="TbPayBalanceUpdate" resultType="TbPayBalanceUpdate">
+    select bruid,balance,uid,created from TbPayBalanceUpdate
+    where bruid=#{bruid}
+  </select>
+
+  <select id="queryAll" resultType="TbPayBalanceUpdate" parameterType="TbPayBalanceUpdate">
+    select pbu.bruid,pbu.balance,pbu.uid,u.phone 'user.phone',u.blockId 'user.blockId',pbu.created from TbPayBalanceUpdate pbu
+    inner join TbUser u on pbu.uid = u.uid
+    <trim prefix="where" prefixOverrides="and">
+      <!-- 通过电话过滤用户 -->
+      <if test="user!=null and user.phone!=null and user.phone!=''">
+        and u.phone = #{user.phone}
+      </if>
+      <!-- 通过区块id过滤用户 -->
+      <if test="user!=null and user.blockId!=null and user.blockId!=''">
+        and u.blockId = #{user.blockId}
+      </if>
+    </trim>
+  </select>
+
+  <select id="queryAll_COUNT" resultType="int" parameterType="TbPayBalanceUpdate">
+    select count(*) from TbPayBalanceUpdate pbu
+    inner join TbUser u on pbu.uid = u.uid
+    <trim prefix="where" prefixOverrides="and">
+      <!-- 通过电话过滤用户 -->
+      <if test="user!=null and user.phone!=null and user.phone!=''">
+        and u.phone = #{user.phone}
+      </if>
+      <!-- 通过区块id过滤用户 -->
+      <if test="user!=null and user.blockId!=null and user.blockId!=''">
+        and u.blockId = #{user.blockId}
+      </if>
+    </trim>
+  </select>
+
+</mapper>

@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>EOS</title>
+  <link rel="stylesheet" href="lib/bootstrap.min.css">
+  <link rel="stylesheet" href="css/common.css">
+  <link rel="stylesheet" href="css/daibi.css">
+
+</head>
+
+<body>
+  <div class="div-main">
+    <div class="div-head">
+      <div class="pd10 alpha-div">
+        <span class="h3">
+          <i id="btnback" class="pd10 glyphicon glyphicon-chevron-left"></i> EOS
+        </span>
+
+      </div>
+    </div>
+    <div class="pd40"></div>
+    <div class="div-body">
+      <div class="linejd">
+        <div class="ghgh1">
+          <div class="ke">暂未开放，敬请期待。
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- <div class="div-body">
+
+      <div class="pd10 font14">
+        <P> EOS（EOS）简介更新</P>
+
+        <P>EOS是为EOS.io区块链系统发布的基于以太坊的代币，当前形式属于以太坊区块链上的ERC20智能合约代币，EOS ERC20代币将在EOS区块链正式上线后1:1兑换EOS系统中可用的密码学货币。是由Blockone公司研发的一种新的区块链架构，旨在实现分布式应用的性能拓展。EOS项目的目标是实现一个类似操作系统一样的支撑应用程序的区块链架构。该架构可以提供账户，身份认证，数据库，异步通信以及可在数以百计的CPU或群集上的程序调度。该技术的最终形式是一个块链体系架构，该区块链每秒可以支持数百万个交易，同时普通用户无需支付使用费用。EOS
+          密码学货币主要有三大应用场景：带宽和日志存储(硬盘)；计算和计算储备(CPU)；状态存储(RAM)。
+        </P>
+
+        <P> 瞬时使用和长期使用的两类组件都会消耗带宽和计算。区块链系统将维护所有消息的日志，这些日志将会被所有的完整节点下载和存储。通过日志信息，可以重构所有应用程序的状态。</P>
+
+        <P> EOS 密码学货币应用场景具体可解释为：</P>
+        <P>1）接收方支付： 客户从该业务中购买特定产品，而这些产品的销售收入将用于支付业务成本，避免客户直接为使用区块链支付费用，也不会限制或阻止企业确定其产品的货币化策略。</P>
+        <P>2）授权能力：如果一个区块链是使用 EOS 软件系统开发，而其代币是由一个持票人持有，他可能不需要立即消耗全部或部分可用带宽，这样的持有者可以选择将未消耗的带宽给予或租给他人。</P>
+        <P> 3）将交易成本与代币价值分开：如果应用程序所有者持有相应数量的代币，那么应用程序可以在固定的状态和带宽使用中持续运行。开发人员和用户不会受到代币市场价格波动的影响，因此不会依赖于价格。</P>
+        <P> 4）块奖励：每次生成一个块时， EOS.IO 系统都会奖励该区块生成者一个新的代币。系统可能会被配置为限制区块生成者所得奖励上限，这样代币供应的年总增长不超过5%。</P>
+        <P>5）社区福利应用：用户可以选择 3 个社区福利应用，也称为智能合约。这些智能合约将根据每个应用程序从代币持有者收到的选票比例来收取代币，经选举的应用程序或智能合约可以由新当选的应用程序或代币持有人的智能合约所替代。</P>
+        <p> 总量：10亿
+        </P>
+
+      </div>
+    </div> -->
+  </div>
+  </div>
+
+
+  <!-- 通用对话框开始 -->
+  <div>
+    <!-- 等待对话框 -->
+    <div class="modal" data-keyboard="false" data-backdrop="false" role="dialog" tabindex="-1" id="wait-dialog" style="z-index: 1999;">
+      <div class="modal-dialog modal-sm" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title" id="wait-dialog-title"></h4>
+          </div>
+          <div class="modal-body">
+            <div>
+              <div id="wait-dialog-info" class="h4 text-center"></div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+    <!-- 等待对话框结束 -->
+    <!-- 确定对话框 -->
+    <div class="modal" role="dialog" tabindex="-1" id="alert-dialog" style="z-index: 1998;">
+      <div class="modal-dialog modal-sm" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+            <h4 class="modal-title" id="alert-dialog-title"></h4>
+          </div>
+          <div class="modal-body">
+            <div>
+              <div id="alert-dialog-info" class="h4 text-center"></div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <span class="btn btn-primary" data-dismiss="modal">确定</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- 确定对话框结束 -->
+
+    <!-- 确认对话框 -->
+    <div class="modal" role="dialog" data-keyboard="false" data-backdrop="false" tabindex="-1" id="confirm-dialog" style="z-index: 1997;">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title" id="confirm-dialog-title"></h4>
+          </div>
+          <div class="modal-body">
+            <div>
+              <div id="confirm-dialog-info" class="h4 text-center"></div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <span class="btn btn-primary" id="confirm-dialog-yes">是</span>
+            <span class="btn btn-primary" id="confirm-dialog-no">否</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- 确认对话框结束 -->
+
+    <!-- 自定义对话框 -->
+    <div class="modal" data-keyboard="false" data-backdrop="false" role="dialog" tabindex="-1" id="custom-dialog" style="z-index: 1990;">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title" id="custom-dialog-title"></h4>
+          </div>
+          <div class="modal-body">
+            <div id="custom-dialog-body"></div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+    <!-- 自定义对话框结束 -->
+  </div>
+  <!-- 通用对话框结束 -->
+  <script type="text/javascript" src="lib/jquery.min.js"></script>
+  <script type="text/javascript" src="lib/bootstrap.min.js"></script>
+  <script type="text/javascript" src="lib/bs-dialog.js"></script>
+  <script type="text/javascript" src="lib/data-service.js"></script>
+  <script type="text/javascript" src="js/common.js"></script>
+  <script type="text/javascript" src="js/EOS.js"></script>
+</body>
+
+</html>

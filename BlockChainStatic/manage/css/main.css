@@ -1,0 +1,49 @@
+.left-div {
+  min-width: 200px;
+  max-width: 200px;
+  border-right: 2px solid rgb(224, 233, 227);
+}
+
+.right-div {
+  overflow: auto;
+}
+
+.div-width {
+  min-width: 1366px;
+}
+
+.sanxiang{
+  border-bottom: 2px solid rgb(224, 233, 227);
+}
+input{
+  height: 25px;
+  width: 120px;
+}
+.div-color{
+  /* background-color: rgb(194, 194, 194); */
+  color: #000;
+}
+.guanlituichu{
+  padding: 5px 50px 5px 50px;
+}
+/*文本框头头颜色*/
+.txttt{
+  background-color:  rgb(213, 245, 255);
+  color: #000000;
+}
+
+body {
+  background-image: url('../imgeas/1.jpg');
+  /* opacity: 0.8; */
+}
+.dy {
+  background-color: rgba(202, 202, 202, 0.7);
+}
+@font-face {
+  font-family: 'iconfont';  /* project id 721813 */
+  src: url('//at.alicdn.com/t/font_721813_a3gnyt854mp.eot');
+  src: url('//at.alicdn.com/t/font_721813_a3gnyt854mp.eot?#iefix') format('embedded-opentype'),
+  url('//at.alicdn.com/t/font_721813_a3gnyt854mp.woff') format('woff'),
+  url('//at.alicdn.com/t/font_721813_a3gnyt854mp.ttf') format('truetype'),
+  url('//at.alicdn.com/t/font_721813_a3gnyt854mp.svg#iconfont') format('svg');
+}

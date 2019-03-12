@@ -1,0 +1,66 @@
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropbt:hover {
+  color: rgb(63, 127, 223);
+}
+.dropdown-content {
+  background-color: rgba(179, 171, 171, 0.09);
+  width: 100%;
+  float: left;
+  margin: 0px auto;
+  margin-top: 30px;
+}
+.lineleft,
+.lineright {
+  padding-top: 4px;
+  padding: auto;
+  border-bottom: 1px solid rgb(0, 221, 255);
+  height: 30px;
+}
+.lineleft:hover,
+.lineright:hover {
+  color: rgb(63, 127, 223);
+}
+
+.div-body2 {
+  width: 100%;
+  height: 100%;
+  margin-top: 60px;
+  position: fixed;
+  border: 1px solid rgb(0, 221, 255);
+}
+
+.fliud-div {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.div40 {
+  min-width: 40%;
+  max-width: 40%;
+  flex: 1;
+}
+
+.div60 {
+  min-width: 60%;
+  max-width: 60%;
+  flex: 1;
+}
+.flewdi {
+  border: 1px solid;
+}
+
+#divData {
+  overflow: auto;
+}
+
+.font {
+  font-size: 0.9em;
+}
+.ckgdbj{
+  padding: 0px 20px 0px 0px;
+}

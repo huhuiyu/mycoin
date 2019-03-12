@@ -1,0 +1,159 @@
+.leftLink {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.rightContent {
+  min-width: 50%;
+  max-width: 50%;
+  flex: 1;
+}
+.zhuzhong {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.flexwi {
+  float: left;
+  border: 1px solid #ffffff;
+  max-width: 33%;
+  min-width: 33.3%;
+  width: 100%;
+  font-size: 1.3rem;
+  height: 23px;
+  margin: auto;
+}
+.div-body2 {
+  width: 100%;
+  position: fixed;
+}
+.widefro {
+  float: left;
+  border: 1.3px solid rgb(65, 174, 225);
+  max-width: 50%;
+  min-width: 30.3%;
+  width: 100%;
+  font-size: 1.5rem;
+  height: 32px;
+  margin: auto;
+  text-align: left;
+}
+
+.widefrol {
+  float: left;
+  border: 1.3px solid rgb(65, 174, 225);
+  max-width: 40%;
+  min-width: 30.3%;
+  width: 100%;
+  font-size: 1.5rem;
+  height: 32px;
+  margin: auto;
+  text-align: left;
+}
+
+.widefror {
+  float: left;
+  border: 1.3px solid rgb(65, 174, 225);
+  max-width: 60%;
+  min-width: 30.3%;
+  width: 100%;
+  font-size: 1.5rem;
+  height: 32px;
+  margin: auto;
+  text-align: left;
+}
+
+.raduir {
+  max-width: 100%;
+  min-width: 100%;
+  /* margin: 0px 5px 1px 82px; */
+  margin: 10px auto;
+  flex-grow: 1;
+}
+.jec1 {
+  float: left;
+  text-decoration: none;
+  color: rgba(119, 120, 121, 0.95);
+  border: 2px solid rgba(119, 120, 121, 0.95);
+  border-top-left-radius: 30px;
+  border-bottom-left-radius: 30px;
+  box-shadow: 1px 0px 2px 2px;
+  width: 23%;
+}
+.jec1:link {
+  text-decoration: none;
+  color: rgba(74, 157, 53, 0.95);
+  border: 2px solid rgba(74, 157, 53, 0.95);
+}
+.jec1:visited {
+  text-decoration: none;
+  color: rgba(74, 157, 53, 0.95);
+  border: 2px solid rgba(74, 157, 53, 0.95);
+}
+.jec1:hover {
+  text-decoration: none;
+  color: rgba(74, 157, 53, 0.95);
+  border: 2px solid rgba(74, 157, 53, 0.95);
+}
+.jec1:active {
+  text-decoration: none;
+  color: rgba(74, 157, 53, 0.95);
+  border: 2px solid rgba(74, 157, 53, 0.95);
+}
+.jec2 {
+  float: left;
+  border: 1px solid rgb(65, 174, 225);
+  box-shadow: 1px 0px 2px 2px;
+}
+.jec3 {
+  float: left;
+  border: 1px solid rgb(65, 174, 225);
+  border-top-right-radius: 30px;
+  border-bottom-right-radius: 30px;
+  text-align: center;
+  width: 23%;
+  box-shadow: 1px 0px 2px 2px;
+}
+.body-cent {
+  max-width: 100%;
+  min-width: 100%;
+  /* box-sizing:border-box; */
+  border: 1px solid rgb(65, 174, 225);
+
+  box-shadow: 1px 1px 5px rgb(65, 174, 225);
+  position: fixed;
+  margin: 56px 0px 0px 0px;
+  overflow: scroll;
+}
+.div-min {
+  margin: 3px 0px 0px 0px;
+  border: 1px solid #000000;
+  width: 100%;
+  margin-top:1px; 
+}
+.div-j {
+  width: 100%;
+  margin: 1px 0px 0px 0px;
+}
+.jec1 jec2 jec3:hover {
+  color: rgba(74, 157, 53, 0.95);
+  text-decoration: none;
+}
+
+.hi {
+  margin-top: 500px;
+}
+
+.btn-mai {
+  color:white;
+  border-radius: 10px;
+  margin: 5px auto;
+  background-color: rgb(65, 174, 225);
+  width: 55px;
+  text-align: center;
+}
+.ckgdbj{
+  padding: 0px 20px 0px 0px;
+}

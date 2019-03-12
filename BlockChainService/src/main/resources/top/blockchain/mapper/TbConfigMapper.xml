@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="top.blockchain.dao.TbConfigDAO">
+
+  <select id="query" resultType="TbConfig">
+    select * from TbConfig
+  </select>
+
+  <insert id="add" parameterType="TbConfig">
+    insert into TbConfig (configKey,configVal,lastupdate)
+    values(#{configKey},#{configVal},now())
+  </insert>
+
+  <update id="modify" parameterType="TbConfig">
+    update TbConfig set lastupdate=now(),configKey=#{configKey},configVal=#{configVal} where configId=#{configId}
+  </update>
+
+  <select id="queryByKey" resultType="TbConfig" parameterType="TbConfig">
+    select * from TbConfig where configKey=#{configKey}
+  </select>
+  
+  <select id="queryNow" resultType="java.util.Date">
+    select now()
+  </select>
+
+</mapper>

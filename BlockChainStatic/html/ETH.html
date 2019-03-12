@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>ETH</title>
+  <link rel="stylesheet" href="lib/bootstrap.min.css">
+  <link rel="stylesheet" href="css/common.css">
+  <link rel="stylesheet" href="css/daibi.css">
+
+</head>
+
+<body>
+  <div class="div-main">
+    <div class="div-head">
+      <div class="pd10 alpha-div">
+        <span class="h3">
+          <i id="btnback" class="pd10 glyphicon glyphicon-chevron-left"></i> ETH
+        </span>
+
+      </div>
+    </div>
+    <div class="pd40"></div>
+    <div class="div-body">
+      <div class="linejd">
+        <div class="ghgh1">
+          <div class="ke">暂未开放，敬请期待。
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- <div class="div-body">
+
+      <div class="pd10 font14">
+        <p>太坊（ETH）介绍</p>
+
+        <p>—去中心化的智能合约应用平台</p>
+
+
+        <p>ETH概念:以太坊(英语：Ethereum)是一个平台和一种编程语言，使开发人员能够建立和发布下一代分布式应用。</p>
+
+        <p>ETH（英语：Ether）是以太坊的专用加密数字资产，以太坊通过ETH提供去中心化的虚拟机（称为“以太虚拟机”Ethereum Virtual Machine）来处理点对点合约。</p>
+
+
+        <p>ETH原理:以太坊从设计上就是为了解决比特币扩展性不足的问题。它并不是给用户一系列预先设定好的操作（例如比特币交易），而是允许用户按照自己的意愿创建复杂的操作。这样一来，它就可以作为多种类型去中心化区块链应用的平台，包括加密货币在内但并不仅限于此。</p>
+
+        <p>和其他区块链一样，以太坊也有一个点对点网络协议。以太坊区块链数据库由众多连接到网络的节点来维护和更新。每个网络节点都运行着以太坊模拟机并执行相同的指令。因此，人们有时形象地称以太坊为“世界电脑”。</p>
+
+        <p>ETH用途任何复杂的金融活动或交易都能在以太坊上用编码自动且可靠地进行。除金融类应用外，任何对信任、安全和持久性要求较高的应用场景——比如资产注册、投票、管理和物联网——都会大规模地受到以太坊平台影响。</p>
+
+        <p>ETH设计原则</p>
+
+        <p>1. 简洁原则  </p>
+        <p>以太坊协议将尽可能简单，即便以某些数据存储和时间上的低效为代价。一个普通的程序员也能够完美地去实现完整的开发说明。</p>
+
+        <p>2. 通用原则 </p>
+        <p>没有“特性”是以太坊设计哲学中的一个根本性部分。取而代之的是，以太坊提供了一个内部的图灵完备的脚本语言以供用户来构建任何可以精确定义的智能合约或交易类型。</p>
+
+        <p> 3. 模块化原则 </p>
+        <p>以太坊的不同部分应被设计为尽可能模块化的和可分的。开发过程中，应该能够容易地让在协议某处做一个小改动的同时应用层却可以不加改动地继续正常运行。</p>
+
+        <p>4. 无歧视原则</p>
+
+        <p>协议不应主动地试图限制或阻碍特定的类目或用法，协议中的所有监管机制都应被设计为直接监管危害，不应试图反对特定的不受欢迎的应用。</p>
+
+
+
+        <p>ETH总量：7200万+1872万/年</p>
+
+        <p>区块时间：18秒</p>
+
+        <p>发布日期：2014／07／24</p>
+
+        <p>核心算法：Ethash</p>
+
+        <p>共识机制：前三个阶段POW，第四阶段POS</p>
+
+      </div>
+    </div> -->
+  </div>
+  </div>
+
+
+  <!-- 通用对话框开始 -->
+  <div>
+    <!-- 等待对话框 -->
+    <div class="modal" data-keyboard="false" data-backdrop="false" role="dialog" tabindex="-1" id="wait-dialog" style="z-index: 1999;">
+      <div class="modal-dialog modal-sm" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title" id="wait-dialog-title"></h4>
+          </div>
+          <div class="modal-body">
+            <div>
+              <div id="wait-dialog-info" class="h4 text-center"></div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+    <!-- 等待对话框结束 -->
+    <!-- 确定对话框 -->
+    <div class="modal" role="dialog" tabindex="-1" id="alert-dialog" style="z-index: 1998;">
+      <div class="modal-dialog modal-sm" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+            <h4 class="modal-title" id="alert-dialog-title"></h4>
+          </div>
+          <div class="modal-body">
+            <div>
+              <div id="alert-dialog-info" class="h4 text-center"></div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <span class="btn btn-primary" data-dismiss="modal">确定</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- 确定对话框结束 -->
+
+    <!-- 确认对话框 -->
+    <div class="modal" role="dialog" data-keyboard="false" data-backdrop="false" tabindex="-1" id="confirm-dialog" style="z-index: 1997;">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title" id="confirm-dialog-title"></h4>
+          </div>
+          <div class="modal-body">
+            <div>
+              <div id="confirm-dialog-info" class="h4 text-center"></div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <span class="btn btn-primary" id="confirm-dialog-yes">是</span>
+            <span class="btn btn-primary" id="confirm-dialog-no">否</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- 确认对话框结束 -->
+
+    <!-- 自定义对话框 -->
+    <div class="modal" data-keyboard="false" data-backdrop="false" role="dialog" tabindex="-1" id="custom-dialog" style="z-index: 1990;">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title" id="custom-dialog-title"></h4>
+          </div>
+          <div class="modal-body">
+            <div id="custom-dialog-body"></div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+    <!-- 自定义对话框结束 -->
+  </div>
+  <!-- 通用对话框结束 -->
+  <script type="text/javascript" src="lib/jquery.min.js"></script>
+  <script type="text/javascript" src="lib/bootstrap.min.js"></script>
+  <script type="text/javascript" src="lib/bs-dialog.js"></script>
+  <script type="text/javascript" src="lib/data-service.js"></script>
+  <script type="text/javascript" src="js/common.js"></script>
+  <script type="text/javascript" src="js/ETH.js"></script>
+</body>
+
+</html>

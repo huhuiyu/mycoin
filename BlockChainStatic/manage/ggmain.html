@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>区块链交易平台</title>
+  <link rel="stylesheet" href="lib/bootstrap.min.css">
+  <link rel="stylesheet" href="lib/ue/themes/default/css/umeditor.min.css">
+  <link rel="stylesheet" href="css/common.css">
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/ggmain.css">
+</head>
+
+<body>
+  <div style="height: 100%;" class="dy">
+    <div class="div-main div-width">
+      <div class="div-head txttt">
+        <div class="pd10">
+          <div class="pull-right">
+            <span class="pd20" id="spUser"></span>
+            <span class="btn btn-default guanlituichu" id="btnTc">退出</span>
+          </div>
+          <div class="clearfix"></div>
+        </div>
+      </div>
+      <div class="div-body">
+        <div>
+          <div class="pull-left left-div">
+            <div class="text-center pd10 sanxiang" id="yonghuguanli">
+              用户管理
+            </div>
+            <div class="text-center pd10 sanxiang" id="jiaoyiguanli">
+              交易管理
+            </div>
+            <div class="text-center pd10 sanxiang" id="daishifangbi">
+              资金变动
+            </div>
+            <div class="text-center pd10 sanxiang" id="gonggaofabu">
+              公告发布
+            </div>
+            <div class="text-center pd10 sanxiang" id="peizhiguanli">
+              配置管理
+            </div>
+          </div>
+
+          <div class="right-div">
+            <div class="text-left pd20">
+              <span class="btn btn-default btn-xjxj" id="btnXj">
+                <i class="iconfont">&#xe845;</i> 新建</span>
+            </div>
+            <div class="pd20">
+              <table class="table table-hover div-color">
+                <thead class="text-input">
+                  <tr class="bg-info">
+                    <th>标题</th>
+                    <th>内容</th>
+                    <th>是否置顶</th>
+                    <th>状态</th>
+                    <th>日期</th>
+                    <th>操作</th>
+                  </tr>
+                </thead>
+                <tbody id="tbData">
+                </tbody>
+              </table>
+            </div>
+
+            <div class="text-center">
+              <nav aria-label="Page navigation">
+                <ul class="pagination">
+                  <li>
+                    <a href="javascript:void(0);">
+                      <span id="btnPre">上一页</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="javascript:void(0);">
+                      <span id="spPageInfo"></span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="javascript:void(0);">
+                      <span id="btnNext">下一页</span>
+                    </a>
+                  </li>
+                  <li>
+                      <a href="javascript:void(0);">
+                        跳到：
+                        <input type="text" id="txtGoPage">
+                        <span id="btnGo">GO</span>
+                      </a>
+                    </li>
+                </ul>
+              </nav>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div>
+    <div id="ggjx" style="display: none;">
+      <input type="hidden" id="txtSbUid">
+      <div class="form-group">
+        <div class="input-group">
+          <span class="input-group-addon txttt">
+            标题
+          </span>
+          <input type="text" class="form-control" id="txtbt">
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="input-group">
+          <span class="input-group-addon txttt">
+            内容
+          </span>
+          <div id="txtlr" style="height: 300px;"></div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <div class="text-center">
+          <span class="btn btn-info" id="spanqd">确定</span>
+          <span class="btn btn-info" id="spantc">退出</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div>
+    <div id="ggxg" style="display: none;">
+      <input type="hidden" id="txtSbUid">
+      <div class="form-group">
+        <div class="input-group">
+          <span class="input-group-addon txttt">
+            标题
+          </span>
+          <input type="text" class="form-control" id="txtbt1">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <div class="input-group">
+          <span class="input-group-addon txttt">
+            内容
+          </span>
+          <div id="txtlr1" class="center-block" style="height: 200px;"></div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <div class="input-group">
+          <span class="input-group-addon txttt">
+            置顶
+          </span>
+          <select class="form-control" id="selIsEnable1">
+            <option value="y">置顶</option>
+            <option value="n">NO置顶</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="input-group">
+          <span class="input-group-addon txttt">
+            状态
+          </span>
+          <select class="form-control" id="selIsEnable2">
+            <option value="y">显示</option>
+            <option value="n">隐藏</option>
+          </select>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <div class="text-center">
+          <span class="btn btn-info" id="btnspanqd">确定</span>
+          <span class="btn btn-info" id="btnspantc">退出</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div>
+    <div id="xxxx" style="display: none;">
+      <div class="form-group">
+        <div class="input-group">
+          <span class="input-group-addon txttt">
+            内容
+          </span>
+          <div class="form-control"  id="txtlr2" style="height: 300px;overflow:auto;"></div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <div class="text-center">
+          <span class="btn btn-info" id="btnspantc1">退出</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- 通用对话框开始 -->
+  <div>
+    <!-- 等待对话框 -->
+    <div class="modal fade" data-keyboard="false" data-backdrop="false" role="dialog" tabindex="-1" id="wait-dialog" style="z-index: 1999;">
+      <div class="modal-dialog modal-sm" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title" id="wait-dialog-title"></h4>
+          </div>
+          <div class="modal-body">
+            <div>
+              <div id="wait-dialog-info" class="h4 text-center"></div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+    <!-- 等待对话框结束 -->
+    <!-- 确定对话框 -->
+    <div class="modal fade" role="dialog" tabindex="-1" id="alert-dialog" style="z-index: 1998;">
+      <div class="modal-dialog modal-sm" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+            <h4 class="modal-title" id="alert-dialog-title"></h4>
+          </div>
+          <div class="modal-body">
+            <div>
+              <div id="alert-dialog-info" class="h4 text-center"></div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <span class="btn btn-primary" data-dismiss="modal">确定</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- 确定对话框结束 -->
+
+    <!-- 确认对话框 -->
+    <div class="modal fade" role="dialog" data-keyboard="false" data-backdrop="false" tabindex="-1" id="confirm-dialog" style="z-index: 1997;">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title" id="confirm-dialog-title"></h4>
+          </div>
+          <div class="modal-body">
+            <div>
+              <div id="confirm-dialog-info" class="h4 text-center"></div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <span class="btn btn-primary" id="confirm-dialog-yes">是</span>
+            <span class="btn btn-primary" id="confirm-dialog-no">否</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- 确认对话框结束 -->
+
+    <!-- 自定义对话框 -->
+    <div class="modal fade" data-keyboard="false" data-backdrop="false" role="dialog" tabindex="-1" id="custom-dialog" style="z-index: 1990;">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title" id="custom-dialog-title"></h4>
+          </div>
+          <div class="modal-body">
+            <div id="custom-dialog-body"></div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+    <!-- 自定义对话框结束 -->
+  </div>
+  <!-- 通用对话框结束 -->
+  <script type="text/javascript" src="lib/jquery.min.js"></script>
+  <script type="text/javascript" src="lib/bootstrap.min.js"></script>
+  <script type="text/javascript" src="lib/bs-dialog.js"></script>
+  <script type="text/javascript" src="lib/data-service.js"></script>
+  <script type="text/javascript" src="lib/jquery-resize.js"></script>
+  <script type="text/javascript" src="lib/ue/umeditor.config.js"></script>
+  <script type="text/javascript" src="lib/ue/umeditor.min.js"></script>
+  <script type="text/javascript" src="lib/ue/lang/zh-cn/zh-cn.js"></script>
+
+  <script type="text/javascript" src="js/common.js"></script>
+  <script type="text/javascript" src="js/menu.js"></script>
+  <script type="text/javascript" src="js/ggmain.js"></script>
+
+
+</body>
+
+</html>

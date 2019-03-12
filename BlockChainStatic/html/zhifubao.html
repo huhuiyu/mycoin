@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>支付宝</title>
+  <link rel="stylesheet" href="lib/bootstrap.min.css">
+  <link rel="stylesheet" href="css/common.css">
+  <link rel="stylesheet" href="css/commonwode.css">
+
+
+</head>
+
+<body>
+  <div class="divMain">
+
+    <div class="div-head">
+      <div class="pd10 alpha-div">
+        <span class="h3">
+          <i id="btnreturn" class="pd10 glyphicon glyphicon-chevron-left"></i>
+          设置支付宝
+        </span>
+      </div>
+    </div>
+    <div class="pd20"></div>
+
+    <div class="divBody">
+      <div class="pd20"></div>
+      <div class="pd20 text-center">支付宝</div>
+      <div class="vc-div">
+        <span class="borderdivwaikuang">
+          <input type="text" class="inputborderpx" id="txtzhifubao" placeholder="请输入您的支付宝">
+        </span>
+      </div>
+      <div class="pd20"></div>
+      <div class="vc-div">
+        <span class="btn btnMaichu" id="btntijiao">提交</span>
+      </div>
+
+    </div>
+
+    <!-- 通用对话框开始 -->
+    <div>
+      <!-- 等待对话框 -->
+      <div class="modal" data-keyboard="false" data-backdrop="false" role="dialog" tabindex="-1" id="wait-dialog" style="z-index: 1999;">
+        <div class="modal-dialog modal-sm" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h4 class="modal-title" id="wait-dialog-title"></h4>
+            </div>
+            <div class="modal-body">
+              <div>
+                <div id="wait-dialog-info" class="h4 text-center"></div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+      <!-- 等待对话框结束 -->
+      <!-- 确定对话框 -->
+      <div class="modal" role="dialog" tabindex="-1" id="alert-dialog" style="z-index: 1998;">
+        <div class="modal-dialog modal-sm" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+              <h4 class="modal-title" id="alert-dialog-title"></h4>
+            </div>
+            <div class="modal-body">
+              <div>
+                <div id="alert-dialog-info" class="h4 text-center"></div>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <span class="btn btn-primary" data-dismiss="modal">确定</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- 确定对话框结束 -->
+
+      <!-- 确认对话框 -->
+      <div class="modal" role="dialog" data-keyboard="false" data-backdrop="false" tabindex="-1" id="confirm-dialog" style="z-index: 1997;">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h4 class="modal-title" id="confirm-dialog-title"></h4>
+            </div>
+            <div class="modal-body">
+              <div>
+                <div id="confirm-dialog-info" class="h4 text-center"></div>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <span class="btn btn-primary" id="confirm-dialog-yes">是</span>
+              <span class="btn btn-primary" id="confirm-dialog-no">否</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- 确认对话框结束 -->
+
+      <!-- 自定义对话框 -->
+      <div class="modal" data-keyboard="false" data-backdrop="false" role="dialog" tabindex="-1" id="custom-dialog" style="z-index: 1990;">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h4 class="modal-title" id="custom-dialog-title"></h4>
+            </div>
+            <div class="modal-body">
+              <div id="custom-dialog-body"></div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+      <!-- 自定义对话框结束 -->
+    </div>
+    <!-- 通用对话框结束 -->
+    <script type="text/javascript" src="lib/jquery.min.js"></script>
+    <script type="text/javascript" src="lib/bootstrap.min.js"></script>
+    <script type="text/javascript" src="lib/bs-dialog.js"></script>
+    <script type="text/javascript" src="lib/data-service.js"></script>
+    <script type="text/javascript" src="js/common.js"></script>
+    <script type="text/javascript" src="js/zhifubao.js"></script>
+    <script type="text/javascript" src="js/zaixiankefu.js"></script>
+
+</body>
+
+</html>

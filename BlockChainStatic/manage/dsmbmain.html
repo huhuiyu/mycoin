@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>区块链交易平台</title>
+  <link rel="stylesheet" href="lib/bootstrap.min.css">
+  <link rel="stylesheet" href="css/common.css">
+  <link rel="stylesheet" href="css/main.css">
+</head>
+
+<body>
+  <div style="height: 100%;" class="dy">
+    <div class="div-main div-width">
+      <div class="div-head txttt">
+        <div class="pd10">
+          <div class="pull-right">
+            <span class="pd20" id="spUser"></span>
+            <span class="btn btn-default guanlituichu" id="btnTc">退出</span>
+          </div>
+          <div class="clearfix"></div>
+        </div>
+      </div>
+      <div class="div-body">
+        <div>
+          <div class="pull-left left-div">
+            <div class="text-center pd10 sanxiang" id="yonghuguanli">
+              用户管理
+            </div>
+            <div class="text-center pd10 sanxiang" id="jiaoyiguanli">
+              交易管理
+            </div>
+            <div class="text-center pd10 sanxiang" id="daishifangbi">
+              资金变动
+            </div>
+            <div class="text-center pd10 sanxiang" id="gonggaofabu">
+              公告发布
+            </div>
+            <div class="text-center pd10 sanxiang" id="peizhiguanli">
+              配置管理
+            </div>
+          </div>
+          <div class="right-div">
+            <div>
+              <div class="pd20 form-inline">
+                <div class="form-group">
+                  <div class="input-group">
+                    <span class="input-group-addon txttt">
+                      手机号码
+                    </span>
+                    <input type="text" class="form-control" id="txtPone">
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <div class="input-group">
+                    <span class="input-group-addon txttt">
+                      ID号码
+                    </span>
+                    <input type="text" class="form-control" id="txtIIDD">
+                  </div>
+                  <span class="btn btn-default" id="btn-dsfb" title="查询">
+                    <i class="iconfont">&#xe620;</i>
+                  </span>
+                </div>
+              </div>
+              <div class="pd20">
+                <table class="table table-hover  div-color">
+                  <thead class="text-input">
+                    <tr class="bg-info">
+                      <th>变动金额</th>
+                      <th>资金变动方向</th>
+                      <th>资金变动类型</th>
+                      <th>变动时间</th>
+                      <th>变动说明</th>
+                      <th>ID号</th>
+                      <th>手机号码</th>
+                    </tr>
+                  </thead>
+                  <tbody id="tbData">
+                  </tbody>
+                </table>
+              </div>
+
+
+              <div class="text-center">
+                <nav aria-label="Page navigation">
+                  <ul class="pagination">
+                    <li>
+                      <a href="javascript:void(0);">
+                        <span id="btnPre">上一页</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="javascript:void(0);">
+                        <span id="spPageInfo"></span>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="javascript:void(0);">
+                        <span id="btnNext">下一页</span>
+                      </a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0);">
+                          跳到：
+                          <input type="text" id="txtGoPage">
+                          <span id="btnGo">GO</span>
+                        </a>
+                      </li>
+                  </ul>
+                </nav>
+              </div>
+            </div>
+
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- 通用对话框开始 -->
+  <div>
+    <!-- 等待对话框 -->
+    <div class="modal fade" data-keyboard="false" data-backdrop="false" role="dialog" tabindex="-1" id="wait-dialog" style="z-index: 1999;">
+      <div class="modal-dialog modal-sm" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title" id="wait-dialog-title"></h4>
+          </div>
+          <div class="modal-body">
+            <div>
+              <div id="wait-dialog-info" class="h4 text-center"></div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+    <!-- 等待对话框结束 -->
+    <!-- 确定对话框 -->
+    <div class="modal fade" role="dialog" tabindex="-1" id="alert-dialog" style="z-index: 1998;">
+      <div class="modal-dialog modal-sm" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+            <h4 class="modal-title" id="alert-dialog-title"></h4>
+          </div>
+          <div class="modal-body">
+            <div>
+              <div id="alert-dialog-info" class="h4 text-center"></div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <span class="btn btn-primary" data-dismiss="modal">确定</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- 确定对话框结束 -->
+
+    <!-- 确认对话框 -->
+    <div class="modal fade" role="dialog" data-keyboard="false" data-backdrop="false" tabindex="-1" id="confirm-dialog" style="z-index: 1997;">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title" id="confirm-dialog-title"></h4>
+          </div>
+          <div class="modal-body">
+            <div>
+              <div id="confirm-dialog-info" class="h4 text-center"></div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <span class="btn btn-primary" id="confirm-dialog-yes">是</span>
+            <span class="btn btn-primary" id="confirm-dialog-no">否</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- 确认对话框结束 -->
+
+    <!-- 自定义对话框 -->
+    <div class="modal fade" data-keyboard="false" data-backdrop="false" role="dialog" tabindex="-1" id="custom-dialog" style="z-index: 1990;">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title" id="custom-dialog-title"></h4>
+          </div>
+          <div class="modal-body">
+            <div id="custom-dialog-body"></div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+    <!-- 自定义对话框结束 -->
+  </div>
+  <!-- 通用对话框结束 -->
+  <script type="text/javascript" src="lib/jquery.min.js"></script>
+  <script type="text/javascript" src="lib/bootstrap.min.js"></script>
+  <script type="text/javascript" src="lib/bs-dialog.js"></script>
+  <script type="text/javascript" src="lib/data-service.js"></script>
+  <script type="text/javascript" src="lib/jquery-resize.js"></script>
+  <script type="text/javascript" src="js/common.js"></script>
+  <script type="text/javascript" src="js/menu.js"></script>
+  <script type="text/javascript" src="js/dsmbmain.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,18 @@
+body {
+  background-image: url('../imgeas/1.jpg');
+}
+
+.dl-btn {
+  padding: 5px 100px 5px 100px;
+}
+.pd10 {
+  padding: 10px;
+}
+.tm {
+  justify-content: flex-end;
+  text-align: center;
+}
+.box {
+  background-color: #000;
+  opacity: 0.8;
+}

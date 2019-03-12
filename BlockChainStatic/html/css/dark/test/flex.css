@@ -1,0 +1,28 @@
+body {
+  margin: 0xp;
+  padding: 0px;
+}
+
+.bd-div {
+  border: 1px solid red;
+}
+
+/*内容垂直居中的div*/
+.vc-div {
+  display: flex;
+  height: 200px;
+  justify-content: center;
+  align-items: center;
+}
+
+.fliud-div {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.div50 {
+  min-width: 50%;
+  max-width: 50%;
+  flex: 1;
+}

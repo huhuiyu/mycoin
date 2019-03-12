@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>区块链交易平台</title>
+  <link rel="stylesheet" href="lib/bootstrap.min.css">
+  <link rel="stylesheet" href="css/common.css">
+  <link rel="stylesheet" href="css/pzmian.css">
+  <link rel="stylesheet" href="css/main.css">
+</head>
+
+<body>
+  <div style="height: 100%;" class="dy">
+    <div class="div-main div-width">
+      <div class="div-head txttt">
+        <div class="pd10">
+          <div class="pull-right">
+            <span class="pd20" id="spUser"></span>
+            <span class="btn btn-default guanlituichu" id="btnGzmm">更改密码</span>
+            <span class="btn btn-default guanlituichu" id="btnTc">退出</span>
+          </div>
+          <div class="clearfix"></div>
+        </div>
+      </div>
+      <div class="div-body">
+        <div>
+          <div class="pull-left left-div">
+            <div class="text-center pd10 sanxiang" id="yonghuguanli">
+              用户管理
+            </div>
+            <div class="text-center pd10 sanxiang" id="jiaoyiguanli">
+              交易管理
+            </div>
+            <div class="text-center pd10 sanxiang" id="daishifangbi">
+              资金变动
+            </div>
+            <div class="text-center pd10 sanxiang" id="gonggaofabu">
+              公告发布
+            </div>
+            <div class="text-center pd10 sanxiang" id="peizhiguanli">
+              配置管理
+            </div>
+          </div>
+
+          <div class="right-div pd20">
+            <div class="text-center">
+              <span class="spanzhi h2">
+                *该功能修改后会影响整个系统,可能会造成系统瘫痪,请谨慎修改！
+              </span>
+            </div>
+            <div class="div-pal">
+              <div class="w30 pd20">
+                <div class="panel">
+                  <div class="panel-heading">
+                    <h3 class="panel-title">
+                      <div class="h3 text-center">网站配置</div>
+                    </h3>
+                  </div>
+                  <div class="panel-body">
+                    <div class="pd-top10">
+                      <div class="form-group form-group-lg">
+                        <div class="input-group">
+                          <span class="input-group-addon txttt">
+                            交易手续费
+                          </span>
+                          <input type="text" id="txtPoundage" class="form-control" placeholder="">
+                        </div>
+                      </div>
+                      <div class="form-group form-group-lg">
+                        <div class="input-group">
+                          <span class="input-group-addon txttt">
+                            释放币返点
+                          </span>
+                          <input type="text" id="txtpayback" class="form-control" placeholder="">
+                        </div>
+                      </div>
+                      <div class="form-group form-group-lg">
+                        <div class="input-group">
+                          <span class="input-group-addon txttt">
+                            每日开盘时间
+                          </span>
+                          <input type="text" id="txtfreezeHour" class="form-control" placeholder="">
+                        </div>
+                      </div>
+                      <div class="form-group form-group-lg">
+                        <div class="input-group">
+                          <span class="input-group-addon txttt">
+                            Vip充值金额
+                          </span>
+                          <input type="text" id="txtvip" class="form-control" placeholder="">
+                        </div>
+                      </div>
+                      <div class="form-group form-group-lg">
+                        <div class="input-group">
+                          <span class="input-group-addon txttt">
+                            实时交易价格下限
+                          </span>
+                          <input type="text" id="txtdayPrice" class="form-control" placeholder="">
+                        </div>
+                      </div>
+                      <div class="form-group form-group-lg">
+                        <div class="input-group">
+                          <span class="input-group-addon txttt">
+                            实时交易价格上限
+                          </span>
+                          <input type="text" id="txtdayMaxPrice" class="form-control" placeholder="">
+                        </div>
+                      </div>
+                      <div class="form-group form-group-lg">
+                        <div class="input-group">
+                          <span class="input-group-addon txttt">
+                            上级奖励返还
+                          </span>
+                          <input type="text" id="txtparentReward" class="form-control" placeholder="">
+                        </div>
+                      </div>
+                      <div class="form-group form-group-lg">
+                        <div class="input-group">
+                          <span class="input-group-addon txttt">
+                            上级奖励
+                          </span>
+                          <input type="text" id="txtparentPayReward" class="form-control" placeholder="">
+                        </div>
+                      </div>
+                      <div class="form-group form-group-lg">
+                        <div class="input-group">
+                          <span class="input-group-addon txttt">
+                            二级奖励返还
+                          </span>
+                          <input type="text" id="txtparentReward2" class="form-control" placeholder="">
+                        </div>
+                      </div>
+                      <div class="form-group form-group-lg">
+                        <div class="input-group">
+                          <span class="input-group-addon txttt">
+                            三级奖励返还
+                          </span>
+                          <input type="text" id="txtparentReward3" class="form-control" placeholder="">
+                        </div>
+                      </div>
+                      <div class="form-group form-group-lg">
+                        <div class="input-group">
+                          <span class="input-group-addon txttt">
+                            自身奖励
+                          </span>
+                          <input type="text" id="txtuserReward" class="form-control" placeholder="">
+                        </div>
+                      </div>
+
+                      <div class="form-group form-group-lg">
+                        <div class="input-group">
+                          <span class="input-group-addon txttt">
+                            是否停服
+                          </span>
+                          <select class="form-control" id="txtclosed">
+                            <option value="n">开服</option>
+                            <option value="y">停服</option>
+                          </select>
+                        </div>
+                      </div>
+                      <div class="form-group form-group-lg">
+                        <div class="input-group">
+                          <span class="input-group-addon txttt">
+                            复投比率
+                          </span>
+                          <input type="text" id="txtexchange" class="form-control" placeholder="">
+                        </div>
+                      </div>
+                      <div class="form-group form-group-lg">
+                        <div class="input-group">
+                          <span class="input-group-addon txttt">
+                            复投上级奖励比率
+                          </span>
+                          <input type="text" id="txtexchangeReward" class="form-control" placeholder="">
+                        </div>
+                      </div>
+                      <div class="form-group form-group-lg">
+                        <div class="input-group">
+                          <span class="input-group-addon txttt">
+                            复投二级奖励比率
+                          </span>
+                          <input type="text" id="txtexchangeReward2" class="form-control" placeholder="">
+                        </div>
+                      </div>
+                      <div class="form-group form-group-lg">
+                        <div class="input-group">
+                          <span class="input-group-addon txttt">
+                            复投三级奖励比率
+                          </span>
+                          <input type="text" id="txtexchangeReward3" class="form-control" placeholder="">
+                        </div>
+                      </div>
+                      <div class="form-group form-group-lg">
+                        <div class="input-group">
+                          <span class="input-group-addon txttt">
+                            分享网站链接
+                          </span>
+                          <input type="text" id="txtshareUrl" class="form-control" placeholder="">
+                        </div>
+                      </div>
+                      <div class="form-group form-group-lg">
+                        <div class="input-group">
+                          <span class="input-group-addon txttt">
+                            apk下载链接
+                          </span>
+                          <input type="text" id="txtapkUrl" class="form-control" placeholder="">
+                        </div>
+                      </div>
+                      <div class="form-group form-group-lg">
+                        <div class="input-group">
+                          <span class="input-group-addon txttt">
+                            程序版本号链接
+                          </span>
+                          <input type="text" id="txtversionUrl" class="form-control" placeholder="">
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="text-center pd10">
+                    <span class="btn btn-default btn-jx" id="btnbaocun1">保存</span>
+                  </div>
+                  <div class="pd10"></div>
+                </div>
+              </div>
+
+              <div class="w30 pd20">
+                <div class="panel">
+                  <div class="panel-heading">
+                    <h3 class="panel-title">
+                      <div class="h3 text-center">电话认证</div>
+                    </h3>
+                  </div>
+                  <div class="panel-body">
+                    <div class="pd-top10">
+                      <div class="form-group form-group-lg">
+                        <div class="input-group">
+                          <span class="input-group-addon txttt">
+                            appCode
+                          </span>
+                          <input type="text" id="txtappCode" class="form-control" placeholder="">
+                        </div>
+                      </div>
+                      <div class="form-group form-group-lg">
+                        <div class="input-group">
+                          <span class="input-group-addon txttt">
+                            url
+                          </span>
+                          <input type="text" id="txturl" class="form-control" placeholder="">
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="text-center pd10">
+                    <span class="btn btn-default btn-jx" id="btnbaocun2">保存</span>
+                  </div>
+                  <div class="pd10"></div>
+                </div>
+              </div>
+
+              <div class="w30 pd20">
+                <div class="panel">
+                  <div class="panel-heading">
+                    <h3 class="panel-title">
+                      <div class="h3 text-center">短信验证</div>
+                    </h3>
+                  </div>
+                  <div class="panel-body">
+                    <div class="pd-top10">
+                      <div class="form-group form-group-lg">
+                        <div class="input-group">
+                          <span class="input-group-addon txttt">
+                            accesskeyid
+                          </span>
+                          <input type="text" id="txtaccesskeyid" class="form-control" placeholder="">
+                        </div>
+                      </div>
+                      <div class="form-group form-group-lg">
+                        <div class="input-group">
+                          <span class="input-group-addon txttt">
+                            accesskeysecret
+                          </span>
+                          <input type="text" id="txtaccesskeysecret" class="form-control" placeholder="">
+                        </div>
+                      </div>
+                      <div class="form-group form-group-lg">
+                        <div class="input-group">
+                          <span class="input-group-addon txttt">
+                            domain
+                          </span>
+                          <input type="text" id="txtdomain" class="form-control" placeholder="">
+                        </div>
+                      </div>
+                      <div class="form-group form-group-lg">
+                        <div class="input-group">
+                          <span class="input-group-addon txttt">
+                            product
+                          </span>
+                          <input type="text" id="txtproduct" class="form-control" placeholder="">
+                        </div>
+                      </div>
+                      <div class="form-group form-group-lg">
+                        <div class="input-group">
+                          <span class="input-group-addon txttt">
+                            region1
+                          </span>
+                          <input type="text" id="txtregion1" class="form-control" placeholder="">
+                        </div>
+                      </div>
+                      <div class="form-group form-group-lg">
+                        <div class="input-group">
+                          <span class="input-group-addon txttt">
+                            region2
+                          </span>
+                          <input type="text" id="txtregion2" class="form-control" placeholder="">
+                        </div>
+                      </div>
+                      <div class="form-group form-group-lg">
+                        <div class="input-group">
+                          <span class="input-group-addon txttt">
+                            sign
+                          </span>
+                          <input type="text" id="txtsign" class="form-control" placeholder="">
+                        </div>
+                      </div>
+                      <div class="form-group form-group-lg">
+                        <div class="input-group">
+                          <span class="input-group-addon txttt">
+                            validateCode
+                          </span>
+                          <input type="text" id="txtvalidateCode" class="form-control" placeholder="">
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="text-center pd10">
+                    <span class="btn btn-default btn-jx" id="btnbaocun3">保存</span>
+                  </div>
+                  <div class="pd10"></div>
+                </div>
+              </div>
+
+            </div>
+
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+
+  <div>
+    <div id="xgmm" style="display: none;">
+      <input type="hidden" id="txtSbUid">
+      <div class="form-group">
+        <div class="input-group">
+          <span class="input-group-addon">
+            旧密码
+          </span>
+          <input type="password" class="form-control" id="txtjpwd">
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="input-group">
+          <span class="input-group-addon">
+            新密码
+          </span>
+          <input type="password" class="form-control" id="txtxpwd">
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="input-group">
+          <span class="input-group-addon">
+            确认新密码
+          </span>
+          <input type="password" class="form-control" id="txtpwd">
+        </div>
+      </div>
+      <div class="modal-footer">
+        <div class="text-center">
+          <span class="btn btn-info" id="spanqd">确定</span>
+          <span class="btn btn-info" id="spantc">退出</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 通用对话框开始 -->
+  <div>
+    <!-- 等待对话框 -->
+    <div class="modal fade" data-keyboard="false" data-backdrop="false" role="dialog" tabindex="-1" id="wait-dialog" style="z-index: 1999;">
+      <div class="modal-dialog modal-sm" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title" id="wait-dialog-title"></h4>
+          </div>
+          <div class="modal-body">
+            <div>
+              <div id="wait-dialog-info" class="h4 text-center"></div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+    <!-- 等待对话框结束 -->
+    <!-- 确定对话框 -->
+    <div class="modal fade" role="dialog" tabindex="-1" id="alert-dialog" style="z-index: 1998;">
+      <div class="modal-dialog modal-sm" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+            <h4 class="modal-title" id="alert-dialog-title"></h4>
+          </div>
+          <div class="modal-body">
+            <div>
+              <div id="alert-dialog-info" class="h4 text-center"></div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <span class="btn btn-primary" data-dismiss="modal">确定</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- 确定对话框结束 -->
+
+    <!-- 确认对话框 -->
+    <div class="modal fade" role="dialog" data-keyboard="false" data-backdrop="false" tabindex="-1" id="confirm-dialog" style="z-index: 1997;">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title" id="confirm-dialog-title"></h4>
+          </div>
+          <div class="modal-body">
+            <div>
+              <div id="confirm-dialog-info" class="h4 text-center"></div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <span class="btn btn-primary" id="confirm-dialog-yes">是</span>
+            <span class="btn btn-primary" id="confirm-dialog-no">否</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- 确认对话框结束 -->
+
+    <!-- 自定义对话框 -->
+    <div class="modal fade" data-keyboard="false" data-backdrop="false" role="dialog" tabindex="-1" id="custom-dialog" style="z-index: 1990;">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title" id="custom-dialog-title"></h4>
+          </div>
+          <div class="modal-body">
+            <div id="custom-dialog-body"></div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+    <!-- 自定义对话框结束 -->
+  </div>
+  <!-- 通用对话框结束 -->
+  <script type="text/javascript" src="lib/jquery.min.js"></script>
+  <script type="text/javascript" src="lib/bootstrap.min.js"></script>
+  <script type="text/javascript" src="lib/bs-dialog.js"></script>
+  <script type="text/javascript" src="lib/data-service.js"></script>
+  <script type="text/javascript" src="lib/jquery-resize.js"></script>
+  <script type="text/javascript" src="js/common.js"></script>
+  <script type="text/javascript" src="js/menu.js"></script>
+  <script type="text/javascript" src="js/pzmain.js"></script>
+</body>
+
+</html>

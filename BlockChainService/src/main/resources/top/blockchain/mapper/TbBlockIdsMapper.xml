@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="top.blockchain.dao.TbBlockIdsDAO">
+
+  <!-- 随机获取一个blockId -->
+  <select id="queryId" resultType="java.lang.String">
+    select blockId from TbBlockIds where isUsed='n' order by RAND() limit 1
+  </select>
+
+  <!-- 分页查询是否已经使用的状态为n的记录 -->
+  <select id="queryCount" resultType="int">
+    select count(*) from TbBlockIds where isUsed='n'
+  </select>
+
+  <!-- 根据blockId查询 -->
+  <select id="check" resultType="int" parameterType="java.lang.String">
+    select count(*) from TbBlockIds where blockId=#{blockId}
+  </select>
+
+  <!--添加区块链id -->
+  <insert id="add" parameterType="java.lang.String">
+    insert into TbBlockIds(blockId) values(#{blockId})
+  </insert>
+
+  <!--批量检查blockId是否存在 -->
+  <select id="checkBatch" resultType="int" parameterType="java.util.List">
+    select count(*) from TbBlockIds where blockId in
+    (
+    <foreach collection="list" item="blockId" separator=",">#{blockId}</foreach>
+    )
+  </select>
+
+  <!-- 批量添加blockId -->
+  <insert id="addBatch" parameterType="java.util.List">
+    insert into TbBlockIds(blockId) values
+    <foreach collection="list" item="blockId" separator=",">(#{blockId})</foreach>
+  </insert>
+
+  <!--根据blockId修改是否已经使用的状态为y -->
+  <update id="updateisUser" parameterType="java.lang.String">
+    update TbBlockIds set isUsed='y' where blockId=#{blockId}
+  </update>
+
+</mapper>

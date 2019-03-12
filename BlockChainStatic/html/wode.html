@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>我的</title>
+  <link rel="stylesheet" href="lib/bootstrap.min.css">
+  <link rel="stylesheet" href="css/common.css">
+  <link rel="stylesheet" href="css/wode.css">
+  <link rel="stylesheet" href="css/commonwode.css">
+
+</head>
+
+<body>
+  <div class="div-main">
+    <div class="div-head">
+      <div class="alpha-div">
+        <div class="text-center alpha-div pd10">
+          <span>我的</span>
+          <div class="pull-right" id="divChangeCssMode">
+            <span class="iconfont" id="spCssMode">&#xe66a;</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="div-body">
+      <div class="pd10"></div>
+      <div class="zuoyou topxiangshou1 bianxian3 alpha-div2">
+        <div class="zuoyoubili2 pd10" id="btngerenzhiliao">
+          <span class="iconfont">&#xe654;</span>
+          个人资料
+        </div>
+        <div class="zuoyoubili1">
+          <span class="arrow"></span>
+        </div>
+      </div>
+      <!-- <div class="zuoyou topxiangshou1 bianxian1  alpha-div2">
+        <div class="zuoyoubili2 pd10" id="btnshiming">
+          <span class="iconfont">&#xe630;</span>
+          实名认证
+        </div>
+        <div class="zuoyoubili1">
+          <span class="arrow"></span>
+        </div>
+      </div> -->
+
+      <div class="zuoyou topxiangshou1 bianxian1 alpha-div2">
+        <div class="zuoyoubili2 pd10" id="btnbizz">
+          <span class="iconfont">&#xe645;</span>
+          币增值
+        </div>
+        <div class="zuoyoubili1">
+          <span class="arrow"></span>
+        </div>
+      </div>
+
+      <!-- <div class="zuoyou topxiangshou1 bianxian1 alpha-div2">
+        <div class="zuoyoubili2 pd10" id="btndib">
+          <span class="iconfont">&#xe644;</span>
+          代币
+        </div>
+        <div class="zuoyoubili1">
+          <span class="arrow"></span>
+        </div>
+      </div> -->
+
+      
+      <div class="zuoyou topxiangshou1 bianxian alpha-div2">
+        <div class="zuoyoubili2 pd10" id="btnwoyaotuiguang">
+          <span class="iconfont">&#xe67a;</span>
+          我要推广
+        </div>
+        <div class="zuoyoubili1">
+          <span class="arrow"></span>
+        </div>
+      </div>
+
+      <div class="zuoyou topxiangshou1 bianxian1  alpha-div2">
+        <div class="zuoyoubili2 pd10" id="btnwodetuandui">
+          <span class="iconfont">&#xe694;</span>
+          我的团队
+        </div>
+        <div class="zuoyoubili1">
+          <span class="arrow"></span>
+        </div>
+      </div>
+
+     
+      <div class="zuoyou topxiangshou1 bianxian alpha-div2">
+        <div class="zuoyoubili2 pd10" id="btnguanyuwomen">
+          <span class="iconfont">&#xe61d;</span>
+          关于我们
+        </div>
+        <div class="zuoyoubili1">
+          <span class="arrow"></span>
+        </div>
+      </div>
+      <div class="zuoyou topxiangshou1 bianxian1 alpha-div2">
+        <div class="zuoyoubili2 pd10" id="btnzaixiankefu">
+          <span class="iconfont">&#xe62b;</span>
+          联系客服
+        </div>
+        <div class="zuoyoubili1">
+          <span class="arrow"></span>
+        </div>
+      </div>
+
+      <div class="zuoyou topxiangshou1 bianxian alpha-div2">
+        <div class="zuoyoubili2 pd10" id="btnxitonggonggao">
+          <span class="iconfont">&#xe693;</span>
+          系统公告
+        </div>
+        <div class="zuoyoubili1">
+          <span class="arrow"></span>
+        </div>
+      </div>
+
+      <div class="text-center pd10">
+        <span class="btn h4 mybutton2" style="padding:8px 130px 8px 130px;" id="btnExit">退出</span>
+      </div>
+    </div>
+
+    <div class="div-foot">
+      <div class="btn-group btn-group-justified booth daohangtiaoxia booth">
+        <span class="btn" id="btnqianbao">
+          <i class="glyphicon glyphicon-yen"></i>
+          <p>钱包</p>
+        </span>
+        <span class="btn" id="btnjiaoyi">
+          <i class="glyphicon glyphicon-sort"></i>
+          <p>交易</p>
+        </span>
+        <span class="btn" id="btnwode">
+          <i class="glyphicon glyphicon-user"></i>
+          <p>我的</p>
+        </span>
+      </div>
+    </div>
+
+  </div>
+
+
+
+
+  <!-- 通用对话框开始 -->
+  <div>
+    <!-- 等待对话框 -->
+    <div class="modal" data-keyboard="false" data-backdrop="false" role="dialog" tabindex="-1" id="wait-dialog" style="z-index: 1999;">
+      <div class="modal-dialog modal-sm" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title" id="wait-dialog-title"></h4>
+          </div>
+          <div class="modal-body">
+            <div>
+              <div id="wait-dialog-info" class="h4 text-center"></div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+    <!-- 等待对话框结束 -->
+    <!-- 确定对话框 -->
+    <div class="modal" role="dialog" tabindex="-1" id="alert-dialog" style="z-index: 1998;">
+      <div class="modal-dialog modal-sm" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+            <h4 class="modal-title" id="alert-dialog-title"></h4>
+          </div>
+          <div class="modal-body">
+            <div>
+              <div id="alert-dialog-info" class="h4 text-center"></div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <span class="btn btn-primary" data-dismiss="modal">确定</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- 确定对话框结束 -->
+
+    <!-- 确认对话框 -->
+    <div class="modal" role="dialog" data-keyboard="false" data-backdrop="false" tabindex="-1" id="confirm-dialog" style="z-index: 1997;">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title" id="confirm-dialog-title"></h4>
+          </div>
+          <div class="modal-body">
+            <div>
+              <div id="confirm-dialog-info" class="h4 text-center"></div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <span class="btn btn-primary" id="confirm-dialog-yes">是</span>
+            <span class="btn btn-primary" id="confirm-dialog-no">否</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- 确认对话框结束 -->
+
+    <!-- 自定义对话框 -->
+    <div class="modal" data-keyboard="false" data-backdrop="false" role="dialog" tabindex="-1" id="custom-dialog" style="z-index: 1990;">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title" id="custom-dialog-title"></h4>
+          </div>
+          <div class="modal-body">
+            <div id="custom-dialog-body"></div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+    <!-- 自定义对话框结束 -->
+  </div>
+  <!-- 通用对话框结束 -->
+  <script type="text/javascript" src="lib/jquery.min.js"></script>
+  <script type="text/javascript" src="lib/bootstrap.min.js"></script>
+  <script type="text/javascript" src="lib/data-service.js"></script>
+  <script type="text/javascript" src="lib/bs-dialog.js"></script>
+  <script type="text/javascript" src="js/common.js"></script>
+  <script type="text/javascript" src="js/wode.js"></script>
+</body>
+
+</html>

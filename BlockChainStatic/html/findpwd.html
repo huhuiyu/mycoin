@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>忘记密码</title>
+  <link rel="stylesheet" href="lib/bootstrap.min.css">
+  <link rel="stylesheet" href="css/common.css">
+  <link rel="stylesheet" href="css/findpwd.css">
+</head>
+
+<body>
+  <div class="div-main">
+    <div class="div-head">
+      <div class="pd10 alpha-div">
+        <span class="h3">
+          <i id="btnback" class="pd10 glyphicon glyphicon-chevron-left"></i>
+          找回密码
+        </span>
+      </div>
+    </div>
+    <div class="div-body">
+      <div class="myinput-div mt30">
+        <div class="pd5">
+          <span class="font18" >请输入手机号码</span>
+        </div>
+        <div class="pd5">
+          <input type="text" class="myinput w100" id="txtPhone">
+        </div>
+      </div>
+
+      <div class="myinput-div">
+        <div class="pd5">
+          <span class="font18" >请输入新密码</span>
+        </div>
+        <div class="pd5">
+          <input type="password" class="myinput w100" id="txtPassword">
+        </div>
+      </div>
+      <div class="myinput-div">
+        <div>
+          <span class="font18">图片验证码<span class="font08">(发送手机验证码需要填写)</span></span>
+        </div>
+        <div class="pd5">
+          <img src="" alt="" id="imgCode">
+          <input type="text" class="myinput w50" id="txtTpyzm">
+        </div>
+      </div>
+      <div class="myinput-div">
+        <div class="pd5">
+          <span class="font18" >请输入验证码</span>
+        </div>
+        <div class="pd5">
+          <input type="text"  class="myinput w50" id="txtCode">
+          <span id="ghcode">发送手机验证码</span>
+        </div>
+      </div>
+      <div class="text-center pd10">
+        <span class="btn h4 mybutton2" style="padding: 8px 100px 8px 100px;" id="botnwidth" data-toggle="modal" data-target="#myModal">修改密码</sapn>
+
+      </div>
+    </div>
+  </div>
+  <!-- 模态框（Modal） -->
+  <div>
+    <!-- 等待对话框 -->
+    <div class="modal" data-keyboard="false" data-backdrop="false" role="dialog" tabindex="-1" id="wait-dialog" style="z-index: 1999;">
+      <div class="modal-dialog modal-sm" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title" id="wait-dialog-title"></h4>
+          </div>
+          <div class="modal-body">
+            <div>
+              <div id="wait-dialog-info" class="h4 text-center"></div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+    <!-- 等待对话框结束 -->
+    <!-- 确定对话框 -->
+    <div class="modal" role="dialog" tabindex="-1" id="alert-dialog" style="z-index: 1998;">
+      <div class="modal-dialog modal-sm" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+            <h4 class="modal-title" id="alert-dialog-title"></h4>
+          </div>
+          <div class="modal-body">
+            <div>
+              <div id="alert-dialog-info" class="h4 text-center"></div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <span class="btn btn-primary" data-dismiss="modal">确定</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- 确定对话框结束 -->
+
+    <!-- 确认对话框 -->
+    <div class="modal" role="dialog" data-keyboard="false" data-backdrop="false" tabindex="-1" id="confirm-dialog" style="z-index: 1997;">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title" id="confirm-dialog-title"></h4>
+          </div>
+          <div class="modal-body">
+            <div>
+              <div id="confirm-dialog-info" class="h4 text-center"></div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <span class="btn btn-primary" id="confirm-dialog-yes">是</span>
+            <span class="btn btn-primary" id="confirm-dialog-no">否</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 自定义对话框 -->
+    <div class="modal" data-keyboard="false" data-backdrop="false" role="dialog" tabindex="-1" id="custom-dialog" style="z-index: 1990;">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title" id="custom-dialog-title"></h4>
+          </div>
+          <div class="modal-body">
+            <div id="custom-dialog-body"></div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+    <!-- 自定义对话框结束 -->
+  </div>
+  <!-- 通用对话框结束 -->
+  </div>
+
+
+  <script type="text/javascript" src="lib/jquery.min.js"></script>
+  <script type="text/javascript" src="lib/bootstrap.min.js"></script>
+  <script type="text/javascript" src="lib/data-service.js"></script>
+  <script type="text/javascript" src="lib/bs-dialog.js"></script>
+  <script type="text/javascript" src="js/findpwd.js"></script>
+  <script type="text/javascript" src="js/common.js"></script>
+</body>
+
+</html>

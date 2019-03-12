@@ -1,0 +1,39 @@
+.divhed {
+  border-bottom: 1px solid #fff;
+  /* position: fixed; */
+  min-height: 4%;
+  position: fixed;
+}
+.flad {
+  float: left;
+  width: 100%;
+}
+.li {
+  float: left;
+  width: 20%;
+}
+.jf {
+  margin-top: 300px;
+}
+.tabe {
+  background-color: rgba(10, 23, 98, 0.32);
+}
+.font-cs1 {
+  padding: 0px;
+  margin: 9px 120px 0px 100px;
+  width: 100%;
+  font-size: 1.1em;
+  position: fixed;
+  float: left;
+}
+.div-body1 {
+  max-height: 90%;
+  min-height: 34%;
+  position: fixed;
+  width: 100%;
+  margin-top: 92px;
+  overflow: scroll;
+}
+.headtable {
+  background: rgba(130, 145, 145, 0.71);
+}

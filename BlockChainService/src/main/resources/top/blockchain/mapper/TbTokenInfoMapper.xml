@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="top.blockchain.dao.TbTokenInfoDAO">
+
+  <!--根据最后更新时间大于times的token -->
+  <delete id="deleteToken" parameterType="int">
+    delete from TbTokenInfo where token in (select token from TbToken where timestampdiff(minute,lastupdate,now()) &gt; #{times})
+  </delete>
+
+  <!-- 根据token值，token信息键值删除记录 -->
+  <delete id="deleteTokenKey" parameterType="TbTokenInfo">
+    delete from TbTokenInfo where token=#{token} and infokey=#{infokey}
+  </delete>
+
+  <!--添加token值，token信息键值,token信息值，最后更新时间等于系统当前时间 -->
+  <insert id="add" parameterType="TbTokenInfo">
+    insert into TbTokenInfo(token,infokey,info,lastupdate) values(#{token},#{infokey},#{info},now())
+  </insert>
+
+  <!-- 根据token和infokey的值修改info和最后更新时间 -->
+  <insert id="modify" parameterType="TbTokenInfo">
+    update TbTokenInfo set info=#{info},lastupdate=now() where token=#{token} and infokey=#{infokey}
+  </insert>
+
+  <!-- 根据token，infokey查询 -->
+  <select id="queryByKey" parameterType="TbTokenInfo" resultType="TbTokenInfo">
+    select * from TbTokenInfo where token=#{token} and infokey=#{infokey}
+  </select>
+
+  <!-- 查询token，infokey，已经最后更新时间小于系统当前时间的记录 -->
+  <select id="checkPhoneCode" parameterType="TbTokenInfo" resultType="TbTokenInfo">
+    select * from TbTokenInfo where token=#{token} and infokey=#{infokey} and timestampdiff(minute,lastupdate,now()) &lt; 5
+  </select>
+
+  <!-- 删除infokey，最后更新时间大于30分钟的记录 -->
+  <delete id="removePhoneCode" parameterType="TbTokenInfo">
+    delete from TbTokenInfo where infokey=#{infokey} and timestampdiff(minute,lastupdate,now()) &gt;= 30
+  </delete>
+
+  <!--根据token，infokey查询uid -->
+  <select id="loadUser" parameterType="TbTokenInfo" resultType="TbUser">
+    select u.*,lu.blockId 'linkuser.blockId' from TbUser u
+    inner join TbUser lu on u.linkman = lu.uid
+    where u.uid = (select info from TbTokenInfo where token=#{token} and infokey=#{infokey} order by lastupdate desc limit 1)
+  </select>
+
+  <!--根据token，infokey查询登陆的管理员用户 -->
+  <select id="loadAdminUser" parameterType="TbTokenInfo" resultType="TbAdmin">
+    select * from TbAdmin where aid = (select info from TbTokenInfo where token=#{token} and infokey=#{infokey} order by lastupdate desc limit 1)
+  </select>
+
+</mapper>

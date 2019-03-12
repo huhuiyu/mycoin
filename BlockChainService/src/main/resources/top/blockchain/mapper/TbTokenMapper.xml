@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="top.blockchain.dao.TbTokenDAO">
+
+  <!--根据token查询 -->
+  <select id="queryByKey" parameterType="TbToken" resultType="TbToken">
+    select * from TbToken where token=#{token}
+  </select>
+
+  <!-- 添加token，lastupdate和最后更新时间 -->
+  <insert id="add" parameterType="TbToken">
+    insert into TbToken(token,lastupdate) values(#{token},now())
+  </insert>
+
+  <!-- 根据token修改最后更新时间为系统当前时间 -->
+  <update id="modifyLast" parameterType="TbToken">
+    update TbToken set lastupdate=now() where token=#{token}
+  </update>
+
+  <!--删除最后更新时间大于times的的记录 -->
+  <delete id="removeTimeoutToken" parameterType="int">
+    delete from TbToken where timestampdiff(minute,lastupdate,now()) &gt; #{times}
+  </delete>
+
+</mapper>

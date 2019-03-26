@@ -2,21 +2,19 @@ package top.blockchain.service.impl;
 
 import java.util.HashMap;
 import java.util.Map;
-
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-
+import com.aliyuncs.dysmsapi.model.v20170525.SendSmsResponse;
 import top.blockchain.converter.StringConverter;
 import top.blockchain.dao.TbTokenInfoDAO;
 import top.blockchain.entity.PhoneCode;
+import top.blockchain.entity.SmsBean;
 import top.blockchain.entity.TbAdmin;
 import top.blockchain.entity.TbTokenInfo;
 import top.blockchain.entity.TbUser;
-import top.blockchain.entity.UcPassSmsResult;
 import top.blockchain.model.other.PhoneCodeModel;
+import top.blockchain.service.ConfigService;
 import top.blockchain.service.TokenInfoService;
 import top.blockchain.util.ImageCode;
 import top.blockchain.util.JsonMessage;
@@ -27,12 +25,12 @@ import top.blockchain.util.SmsUtil;
 @Transactional(rollbackFor = Exception.class)
 public class TokenInfoServiceImpl implements TokenInfoService {
 
-  private static final Logger log = LoggerFactory.getLogger(TokenInfoServiceImpl.class);
+  // private static final Logger log = LoggerFactory.getLogger(TokenInfoServiceImpl.class);
 
   @Autowired
   private TbTokenInfoDAO tbTokenInfoDAO;
-//  @Autowired
-//  private ConfigService configService;
+  @Autowired
+  private ConfigService  configService;
 
   @Autowired
   private SmsUtil smsUtil;
@@ -44,7 +42,8 @@ public class TokenInfoServiceImpl implements TokenInfoService {
     TbTokenInfo info = tbTokenInfoDAO.queryByKey(tokenInfo);
     if (info == null) {
       return tbTokenInfoDAO.add(tokenInfo);
-    } else {
+    }
+    else {
       return tbTokenInfoDAO.modify(tokenInfo);
     }
   }
@@ -52,7 +51,7 @@ public class TokenInfoServiceImpl implements TokenInfoService {
   @Override
   public TbUser loadUser(String token) throws Exception {
     TbTokenInfo info = TbTokenInfo.getTokenInfo(token, USER_KEY);
-    TbUser user = tbTokenInfoDAO.loadUser(info);
+    TbUser      user = tbTokenInfoDAO.loadUser(info);
     if (user != null) {
       // user.setUid(-1);
       user.setPassword("*****");
@@ -74,7 +73,8 @@ public class TokenInfoServiceImpl implements TokenInfoService {
     TbTokenInfo info = tbTokenInfoDAO.queryByKey(tokenInfo);
     if (info == null) {
       return tbTokenInfoDAO.add(tokenInfo);
-    } else {
+    }
+    else {
       return tbTokenInfoDAO.modify(tokenInfo);
     }
   }
@@ -108,7 +108,7 @@ public class TokenInfoServiceImpl implements TokenInfoService {
     }
     // checkPhoneCode检查是否存在电话校验码，存在就提示不用再次发送，不存在就删除可能超时的电话校验码，第二步，发送校验码并写入数据库
     TbTokenInfo tokenInfo = TbTokenInfo.getTokenInfo(token, PHONE_CODE_KEY);
-    TbTokenInfo check = tbTokenInfoDAO.checkPhoneCode(tokenInfo);
+    TbTokenInfo check     = tbTokenInfoDAO.checkPhoneCode(tokenInfo);
     // 如果存在记录且电话号码相同就表示五分钟内重复发送
     if (check != null && JsonUtil.parse(check.getInfo(), PhoneCode.class).getPhone().equals(phone)) {
       return JsonMessage.getFailMessage("校验码五分钟内有效，不用重复发送");
@@ -122,20 +122,18 @@ public class TokenInfoServiceImpl implements TokenInfoService {
     Map<String, Object> data = new HashMap<String, Object>();
     data.put("code", phoneCode.getCode());
     // 使用ucpass
-    UcPassSmsResult ucPassSmsResult = smsUtil.sendPhoneCode(phoneCode.getPhone(), phoneCode.getCode());
+    // UcPassSmsResult ucPassSmsResult = smsUtil.sendPhoneCode(phoneCode.getPhone(), phoneCode.getCode());
     // 使用阿里云
-    // SmsBean sms = configService.querySms(); // 获取sms配置
-    // SendSmsResponse sendSmsResponse = smsUtil.send(sms, phone,
-    // sms.getTemplate().getValidateCode(), data);
-    // if (sendSmsResponse.getCode() != null &&
-    // sendSmsResponse.getCode().equals("OK")) {
-    if (ucPassSmsResult != null && "OK".equals(ucPassSmsResult.getMsg())) {
+    SmsBean         sms             = configService.querySms(); // 获取sms配置
+    SendSmsResponse sendSmsResponse = smsUtil.send(sms, phone, sms.getTemplate().getValidateCode(), data);
+    if (sendSmsResponse.getCode() != null && sendSmsResponse.getCode().equals("OK")) {
+      // if (ucPassSmsResult != null && "OK".equals(ucPassSmsResult.getMsg())) {
       // 写入数据库
       tokenInfo.setInfo(JsonUtil.stringify(phoneCode));
       tbTokenInfoDAO.add(tokenInfo);
       return JsonMessage.getSuccessMessage("校验码发送成功");
     }
-    log.info(String.format("sms:%s", ucPassSmsResult));
+    // log.info(String.format("sms:%s", ucPassSmsResult));
     return JsonMessage.getFailMessage("校验码发送失败，请重试");
   }
 
@@ -151,13 +149,14 @@ public class TokenInfoServiceImpl implements TokenInfoService {
 
   @Override
   public String imageCode(String token) throws Exception {
-    String code = ImageCode.makeCode(6);
+    String      code      = ImageCode.makeCode(6);
     TbTokenInfo tokenInfo = TbTokenInfo.getTokenInfo(token, IMAGE_CODE_KEY);
     tokenInfo.setInfo(code);
     TbTokenInfo info = tbTokenInfoDAO.queryByKey(tokenInfo);
     if (info == null) {
       tbTokenInfoDAO.add(tokenInfo);
-    } else {
+    }
+    else {
       tbTokenInfoDAO.modify(tokenInfo);
     }
     return code;

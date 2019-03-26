@@ -9,13 +9,9 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Random;
 import java.util.Scanner;
-import java.util.UUID;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
-
-import com.alibaba.fastjson.JSON;
 import com.aliyuncs.DefaultAcsClient;
 import com.aliyuncs.IAcsClient;
 import com.aliyuncs.dysmsapi.model.v20170525.QuerySendDetailsRequest;
@@ -27,17 +23,14 @@ import com.aliyuncs.exceptions.ServerException;
 import com.aliyuncs.http.MethodType;
 import com.aliyuncs.profile.DefaultProfile;
 import com.aliyuncs.profile.IClientProfile;
-import com.ucpaas.sms.client.JsonReqClient;
-
 import top.blockchain.entity.SmsBean;
-import top.blockchain.entity.UcPassSmsResult;
 
 @Component
 public class SmsUtil {
 
   private static final Logger LOG = LoggerFactory.getLogger(SmsUtil.class);
 
-  public static final Random RAND = new Random();
+  public static final Random           RAND   = new Random();
   public static final SimpleDateFormat FORMAT = new SimpleDateFormat("yyyyMMdd");
 
   public SmsUtil() {
@@ -45,13 +38,6 @@ public class SmsUtil {
 
   public static String makeCode() {
     return (RAND.nextInt(999999 - 100000 + 1) + 100000) + "";
-  }
-
-  private JsonReqClient client = new JsonReqClient();
-
-  public UcPassSmsResult sendPhoneCode(String phone, String code) throws Exception {
-    String result = client.sendSms("460d38047b8ea7841e188b8df2af6bc5", "320ab4442b427c5cb421f17d77894f08", "4ec2305705be47eca71448cd01d90471", "427185", code + ",1800", phone, UUID.randomUUID().toString().replaceAll("[-]", ""));
-    return JSON.parseObject(result, UcPassSmsResult.class);
   }
 
   public SendSmsResponse send(SmsBean smsBean, String phone, String template, Map<String, Object> params) throws Exception {
@@ -105,12 +91,12 @@ public class SmsUtil {
   }
 
   public static String getPhoneCheck(String id, String phone, String name, String url, String appcode) throws Exception {
-    String geturl = String.format(url, id, phone, URLEncoder.encode(name, "UTF-8"));
+    String        geturl     = String.format(url, id, phone, URLEncoder.encode(name, "UTF-8"));
     URLConnection connection = new URL(geturl).openConnection();
     connection.setRequestProperty("Authorization", "APPCODE " + appcode);
     connection.connect();
-    Scanner scanner = new Scanner(connection.getInputStream());
-    StringBuilder sb = new StringBuilder();
+    Scanner       scanner = new Scanner(connection.getInputStream());
+    StringBuilder sb      = new StringBuilder();
     while (scanner.hasNextLine()) {
       sb.append(scanner.nextLine());
     }
@@ -119,7 +105,7 @@ public class SmsUtil {
   }
 
   public static void sendTest(String phone) throws Exception {
-    SmsUtil util = new SmsUtil();
+    SmsUtil             util = new SmsUtil();
     Map<String, Object> data = new HashMap<String, Object>();
     data.put("code", makeCode());
     SendSmsResponse sendSmsResponse = util.send(SmsBean.getTestSmsBean(), phone, "SMS_136785015", data);
@@ -130,7 +116,7 @@ public class SmsUtil {
   }
 
   public static void queryTest() throws Exception {
-    SmsUtil util = new SmsUtil();
+    SmsUtil                  util                     = new SmsUtil();
     QuerySendDetailsResponse querySendDetailsResponse = util.querySendDetails(SmsBean.getTestSmsBean(), "999320428524809051^0", "15973637383");
     for (QuerySendDetailsResponse.SmsSendDetailDTO smsSendDetailDTO : querySendDetailsResponse.getSmsSendDetailDTOs()) {
       LOG.debug("Content=" + smsSendDetailDTO.getContent());
